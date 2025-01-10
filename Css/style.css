@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: #0c1022;
+    color: #fff;
+}
+
+.header {
+    width: 100%;
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0c1022;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: slideTop 1s ease forwards;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    animation: slideTop 1s ease forwards;
+}
+
+.navbar {
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a.active,
+.navbar a:hover {
+background: linear-gradient(45deg, #0077b6, #ffd60a);
+-webkit-text-fill-color: transparent;
+background-clip: text;
+} 
+
+.nav-links li a:hover {
+    color: #ffd60a;
+}
+
+/* Botón de menú hamburguesa */
+.nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .home, .homee {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1200px;
+    gap: 2rem;
+    
+}
+
+.home{
+   animation: slideLeft 2s ease forwards;
+}
+
+.homee{
+    animation: slideRight 2s ease forwards;
+
+}
+
+  .title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .title h1 {
+    font-size: 2rem;
+    color: #fffdfd;
+  }
+
+  .in-flex, .in-flexx {
+    flex: 1 1 45%; /* Ocupan un 45% del ancho disponible */
+    min-width: 300px; /* Tamaño mínimo en pantallas pequeñas */
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .in-flex h1, .in-flexx h1 {
+    color: #555;
+
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .in-flex h3, .in-flexx h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+
+  .in-flex p, .in-flexx p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  /* Media Queries para responsividad */
+  @media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Oculta el menú inicialmente */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #0c1022;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        animation: slideTop 2s ease forwards;
+
+    }
+
+    .nav-links.active {
+        display: flex; /* Muestra el menú cuando está activo */
+        
+    }
+
+ 
+    .nav-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+        animation: slideBottom 2s ease forwards;
+
+    }
+
+    .in-flex, .in-flexx {
+      flex: 1 1 100%; /* Ocupan todo el ancho en tablets */
+      animation: zoomIn 2s ease forwards;
+
+    }
+
+    .title h1 {
+      font-size: 1.8rem; /* Ajuste para títulos */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title h1 {
+      font-size: 1.5rem; /* Títulos más pequeños */
+    }
+
+    .in-flex, .in-flexx {
+      padding: 1rem; /* Menos padding en pantallas pequeñas */
+    }
+
+    .in-flex h1, .in-flexx h1 {
+      font-size: 1.2rem; /* Ajuste de tamaño de texto */
+    }
+
+    .in-flex p, .in-flexx p {
+      font-size: 0.8rem; /* Texto más compacto */
+    }
+  }
+
+
+/* KEYFRAMES ANIMATION */
+@keyframes slideTop {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+
+}
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+
+}
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+
+}
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+
+}
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes zoomIn {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floatImage {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-24px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes circleRotate {
+    0%{
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
