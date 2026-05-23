@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Geanluis Lorenzo | Portfolio </title>
-    <link rel="stylesheet" href="Css/style.css">
-    <link rel="icon" href="https://img.icons8.com/material/24/under-computer--v1.png" type="image/x-icon"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="/1-About/Css/style.css">
+    <link rel="icon" href="https://img.icons8.com/material/24/under-computer--v1.png" type="image/x-icon">
+    <link href="./Geanluis Lorenzo _ Portfolio_files/css" rel="stylesheet">
+    <link href="./Geanluis Lorenzo _ Portfolio_files/boxicons.min.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <header class="header">
         <a href="https://geanluisgl.github.io/gy/" class="logo">Portfolio</a>
         <nav class="navbar">
             <ul class="nav-links">
-                <li> <a href="https://geanluisgl.github.io/gy/" style="--i:1">Home</a>
-                <li><a href="https://geanluisgl.github.io/about/" style="--i:2" class="active">About</a></li>
-                <li><a href="https://geanluisgl.github.io/skill/" style="--i:3">Skills</a></li>
-                <li><a href="https://geanluisgl.github.io/project/" style="--i:4">Projects</a></li>
-                <li><a href="https://geanluisgl.github.io/contact/" style="--i:5">Contact</a></li>  
+                <li><a href="https://geanluisgl.github.io/gy/">Home</a></li>
+                <li><a href="https://geanluisgl.github.io/about/" class="active">About</a></li>
+                <li><a href="https://geanluisgl.github.io/skill/">Skills</a></li>
+                <li><a href="https://geanluisgl.github.io/project/">Projects</a></li>
+                <li><a href="https://geanluisgl.github.io/contact/">Contact</a></li>
             </ul>
-            <button type="submit" class="nav-toggle" aria-label="Abrir menú">
-                <i class='bx bx-list-ul' style="font-size: 2rem;"></i>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class='bx bx-moon'></i>
+            </button>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class='bx bx-menu' style="font-size: 2rem;"></i>
             </button>
         </nav>
     </header>
+
     <br><br>
 
     <br><br>
     <section class="home">
-     <div class="title"><h1 >EXPERIENCE</h1></div>
+     <div class="title"><h1>EXPERIENCE</h1></div>
 
     <div class="in-flex">
 
@@ -94,7 +97,7 @@
     </div>
         
     <div class="in-flexx">
-        <h1>Mathematics & Technology </h1>
+        <h1>Mathematics &amp; Technology </h1>
          <h3>Centro Educativo en Artes Club Mauricio Baez</h3>
          <p>2019-2020</p>
     </div>
@@ -106,10 +109,227 @@
     </div>
 
  </section>
-    <script>
-        document.querySelector('.nav-toggle').addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.toggle('active');
+    
+ <section class="homee">
+    <div class="title">
+        <h1>Certifications</h1>
+    </div>
+
+    <div class="in-flexx cert-card" data-cert="finder">
+        <h1>Finder</h1>
+        <h3>Capacítate el Empleo</h3>
+        <p>2025</p>
+        <div class="cert-preview">
+            <div class="cert-preview-content">
+                <button class="cert-preview-btn">
+                    <i class='bx bx-show'></i>
+                    <span>Preview</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="in-flexx cert-card" data-cert="computer_repair">
+        <h1>Computer equipment installation and repair technician</h1>
+        <h3>Capacítate el Empleo</h3>
+        <p>2025</p>
+        <div class="cert-preview">
+            <div class="cert-preview-content">
+                <button class="cert-preview-btn">
+                    <i class='bx bx-show'></i>
+                    <span>Preview</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="in-flexx cert-card" data-cert="office_automation">
+        <h1>Computer Technician (Office Automation)</h1>
+        <h3>Capacítate el Empleo</h3>
+        <p>2025</p>
+        <div class="cert-preview">
+            <div class="cert-preview-content">
+                <button class="cert-preview-btn">
+                    <i class='bx bx-show'></i>
+                    <span>Preview</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="in-flexx cert-card" data-cert="control_version">
+        <h1>Control Version</h1>
+        <h3>Capacítate el Empleo</h3>
+        <p>2020</p>
+        <div class="cert-preview">
+            <div class="cert-preview-content">
+                <button class="cert-preview-btn">
+                    <i class='bx bx-show'></i>
+                    <span>Preview</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL PARA PREVIEW DE CERTIFICADOS (SOLO IMÁGENES) -->
+<div id="certModal" class="cert-modal">
+    <div class="cert-modal-content">
+        <span class="cert-modal-close">&times;</span>
+        <div class="cert-modal-header">
+            <h2 id="modalTitle">Certificado</h2>
+        </div>
+        <div class="cert-modal-body">
+            <div class="cert-image-container">
+                <img id="certImage" src="" alt="Certificado">
+            </div>
+            <div class="cert-info">
+                <p id="certIssuer"></p>
+                <p id="certDate"></p>
+            </div>
+        </div>
+    </div>
+</div> 
+
+     <script>
+        // Menú hamburguesa
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
+
+        // Cerrar menú al hacer click en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Modo nocturno/diurno
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            icon.className = theme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+        }
+        
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        // ========================================
+// LÓGICA PARA CERTIFICADOS (SOLO IMÁGENES)
+// ========================================
+
+// Configuración de las imágenes de los certificados
+// CAMBIA ESTAS RUTAS por las rutas reales de tus imágenes en la carpeta img/
+const certificatesData = {
+    finder: {
+        title: "Finder",
+        image: "img/finder.jpeg", // Cambia por tu imagen
+        issuer: "Capacítate el Empleo",
+        date: "2025"
+    },
+    computer_repair: {
+        title: "Computer equipment installation and repair technician",
+        image: "img/computer_repair.png", // Cambia por tu imagen
+        issuer: "Capacítate el Empleo",
+        date: "2025"
+    },
+    office_automation: {
+        title: "Computer Technician (Office Automation)",
+        image: "img/office_automation.png", // Cambia por tu imagen
+        issuer: "Capacítate el Empleo",
+        date: "2025"
+    },
+    control_version: {
+        title: "Control Version",
+        image: "img/control_version.png", // Cambia por tu imagen
+        issuer: "Capacítate el Empleo",
+        date: "2020"
+    }
+};
+
+// Elementos del DOM
+const modal = document.getElementById('certModal');
+const modalTitle = document.getElementById('modalTitle');
+const certImage = document.getElementById('certImage');
+const certIssuer = document.getElementById('certIssuer');
+const certDate = document.getElementById('certDate');
+const closeBtn = document.querySelector('.cert-modal-close');
+
+// Función para abrir el modal con la imagen del certificado
+function openCertificateModal(certId) {
+    const cert = certificatesData[certId];
+    
+    if (cert) {
+        modalTitle.textContent = cert.title;
+        certImage.src = cert.image;
+        certImage.alt = `Certificado: ${cert.title}`;
+        certIssuer.textContent = cert.issuer;
+        certDate.textContent = cert.date;
+        
+        // Mostrar modal y bloquear scroll
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    } else {
+        console.error('Certificado no encontrado:', certId);
+    }
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Evento para cerrar con la X
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+}
+
+// Evento para cerrar haciendo clic fuera del modal
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// Evento para cerrar con tecla ESC
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+    }
+});
+
+// Agregar evento click a todas las tarjetas de certificados
+document.querySelectorAll('.cert-card').forEach((card) => {
+    card.addEventListener('click', (event) => {
+        // Evitar que el click se propague
+        event.stopPropagation();
+        
+        // Obtener el ID del certificado desde el atributo data-cert
+        const certId = card.getAttribute('data-cert');
+        
+        if (certId && certificatesData[certId]) {
+            openCertificateModal(certId);
+        } else {
+            console.warn('Certificado no encontrado para ID:', certId);
+        }
+    });
+});
     </script>
-</body>
-</html>
+
+</body></html>
