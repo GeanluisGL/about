@@ -110,12 +110,12 @@
 
  </section>
     
- <section class="homee">
+<section class="homee">
     <div class="title">
         <h1>Certifications</h1>
     </div>
 
-    <div class="in-flexx cert-card" data-cert="finder">
+    <div class="in-flexx cert-card" data-cert="finder" data-image="img/finder.jpeg" data-issuer="Capacítate el Empleo" data-date="2025">
         <h1>Finder</h1>
         <h3>Capacítate el Empleo</h3>
         <p>2025</p>
@@ -129,7 +129,7 @@
         </div>
     </div>
 
-    <div class="in-flexx cert-card" data-cert="computer_repair">
+    <div class="in-flexx cert-card" data-cert="computer_repair" data-image="img/computer_repair.png" data-issuer="Capacítate el Empleo" data-date="2025">
         <h1>Computer equipment installation and repair technician</h1>
         <h3>Capacítate el Empleo</h3>
         <p>2025</p>
@@ -143,7 +143,7 @@
         </div>
     </div>
 
-    <div class="in-flexx cert-card" data-cert="office_automation">
+    <div class="in-flexx cert-card" data-cert="office_automation" data-image="img/office_automation.png" data-issuer="Capacítate el Empleo" data-date="2025">
         <h1>Computer Technician (Office Automation)</h1>
         <h3>Capacítate el Empleo</h3>
         <p>2025</p>
@@ -157,7 +157,7 @@
         </div>
     </div>
 
-    <div class="in-flexx cert-card" data-cert="control_version">
+    <div class="in-flexx cert-card" data-cert="control_version" data-image="img/control_version.png" data-issuer="Capacítate el Empleo" data-date="2020">
         <h1>Control Version</h1>
         <h3>Capacítate el Empleo</h3>
         <p>2020</p>
@@ -229,38 +229,9 @@
             updateThemeIcon(newTheme);
         });
 
-        // ========================================
-// LÓGICA PARA CERTIFICADOS (SOLO IMÁGENES)
 // ========================================
-
-// Configuración de las imágenes de los certificados
-// CAMBIA ESTAS RUTAS por las rutas reales de tus imágenes en la carpeta img/
-const certificatesData = {
-    finder: {
-        title: "Finder",
-        image: "img/finder.jpeg", // Cambia por tu imagen
-        issuer: "Capacítate el Empleo",
-        date: "2025"
-    },
-    computer_repair: {
-        title: "Computer equipment installation and repair technician",
-        image: "img/computer_repair.png", // Cambia por tu imagen
-        issuer: "Capacítate el Empleo",
-        date: "2025"
-    },
-    office_automation: {
-        title: "Computer Technician (Office Automation)",
-        image: "img/office_automation.png", // Cambia por tu imagen
-        issuer: "Capacítate el Empleo",
-        date: "2025"
-    },
-    control_version: {
-        title: "Control Version",
-        image: "img/control_version.png", // Cambia por tu imagen
-        issuer: "Capacítate el Empleo",
-        date: "2020"
-    }
-};
+// LÓGICA PARA CERTIFICADOS (LEYENDO DATOS DEL HTML)
+// ========================================
 
 // Elementos del DOM
 const modal = document.getElementById('certModal');
@@ -271,21 +242,25 @@ const certDate = document.getElementById('certDate');
 const closeBtn = document.querySelector('.cert-modal-close');
 
 // Función para abrir el modal con la imagen del certificado
-function openCertificateModal(certId) {
-    const cert = certificatesData[certId];
+function openCertificateModal(certCard) {
+    // Leer los datos directamente desde los atributos data-* del HTML
+    const title = certCard.querySelector('h1').textContent;
+    const image = certCard.getAttribute('data-image');
+    const issuer = certCard.getAttribute('data-issuer');
+    const date = certCard.getAttribute('data-date');
     
-    if (cert) {
-        modalTitle.textContent = cert.title;
-        certImage.src = cert.image;
-        certImage.alt = `Certificado: ${cert.title}`;
-        certIssuer.textContent = cert.issuer;
-        certDate.textContent = cert.date;
+    if (image) {
+        modalTitle.textContent = title;
+        certImage.src = image;
+        certImage.alt = `Certificado: ${title}`;
+        certIssuer.textContent = issuer;
+        certDate.textContent = date;
         
         // Mostrar modal y bloquear scroll
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     } else {
-        console.error('Certificado no encontrado:', certId);
+        console.error('No se encontró la imagen para el certificado:', title);
     }
 }
 
@@ -317,16 +292,25 @@ document.addEventListener('keydown', (event) => {
 // Agregar evento click a todas las tarjetas de certificados
 document.querySelectorAll('.cert-card').forEach((card) => {
     card.addEventListener('click', (event) => {
-        // Evitar que el click se propague
+        // Evitar que el click se propague si se hizo clic en el botón
+        if (event.target.closest('.cert-preview-btn')) {
+            return;
+        }
+        
         event.stopPropagation();
         
-        // Obtener el ID del certificado desde el atributo data-cert
-        const certId = card.getAttribute('data-cert');
-        
-        if (certId && certificatesData[certId]) {
-            openCertificateModal(certId);
-        } else {
-            console.warn('Certificado no encontrado para ID:', certId);
+        // Abrir el modal con los datos de la tarjeta
+        openCertificateModal(card);
+    });
+});
+
+// También permitir que el botón Preview abra el modal
+document.querySelectorAll('.cert-preview-btn').forEach((button) => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const card = button.closest('.cert-card');
+        if (card) {
+            openCertificateModal(card);
         }
     });
 });
