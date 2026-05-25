@@ -251,9 +251,8 @@ body {
     flex-wrap: wrap;
     gap: 2rem;
 }
-
 /* ========================================
-   TARJETAS DE CERTIFICADOS CON POP-OUT WINDOW
+   POP-OUT WINDOW PARA IMAGEN DEL CERTIFICADO
    ======================================== */
 .cert-card {
     position: relative;
@@ -262,37 +261,30 @@ body {
     z-index: 1;
 }
 
-/* Efecto hover en la tarjeta */
 .cert-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     z-index: 2;
 }
 
-/* Pop-out window que aparece al hacer hover */
+/* Pop-out que muestra la imagen */
 .cert-preview {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.7);
+    transform: translate(-50%, -50%) scale(0.8);
     width: auto;
-    min-width: 280px;
-    max-width: 400px;
+    max-width: 350px;
     background: var(--card-bg);
-    backdrop-filter: blur(8px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-radius: 1rem;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border-radius: 1rem;
     z-index: 1000;
-    padding: 1rem;
+    padding: 0.8rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    pointer-events: auto;
     border: 1px solid var(--border-color);
+    pointer-events: none; /* Para que no interfiera con el clic en la tarjeta */
 }
 
 .cert-card:hover .cert-preview {
@@ -304,73 +296,14 @@ body {
 /* Imagen dentro del pop-out */
 .preview-image {
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
+    max-height: 400px;
     height: auto;
     border-radius: 0.5rem;
     object-fit: contain;
-    margin-bottom: 0.8rem;
+    display: block;
+    margin: 0 auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Título dentro del pop-out */
-.preview-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-align: center;
-    margin: 0.5rem 0;
-    color: var(--text-primary);
-}
-
-/* Información dentro del pop-out */
-.preview-info {
-    font-size: 0.75rem;
-    text-align: center;
-    color: var(--text-light);
-    margin-bottom: 0.8rem;
-}
-
-/* Botón dentro del pop-out */
-.preview-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1.2rem;
-    font-size: 0.8rem;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    border: none;
-    border-radius: 50px;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    width: 100%;
-}
-
-.preview-btn:hover {
-    transform: scale(1.02);
-    gap: 0.7rem;
-    filter: brightness(1.05);
-}
-
-/* Animación de rebote para el pop-out */
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.05);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-.cert-card:hover .cert-preview {
-    animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
 /* Efecto de brillo en la tarjeta al hacer hover */
@@ -391,12 +324,54 @@ body {
     left: 100%;
 }
 
-/* Efecto adicional en el título cuando la tarjeta está en hover */
+/* Efecto en el título al hacer hover */
 .cert-card:hover h1 {
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* Animación de entrada del pop-out */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.cert-card:hover .cert-preview {
+    animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .cert-preview {
+        max-width: 280px;
+        padding: 0.6rem;
+    }
+    .preview-image {
+        max-width: 260px;
+        max-height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cert-preview {
+        max-width: 240px;
+        padding: 0.5rem;
+    }
+    .preview-image {
+        max-width: 220px;
+        max-height: 280px;
+    }
 }
 
 /* ========================================

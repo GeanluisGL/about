@@ -30,7 +30,7 @@
 
     <section class="home">
         <div class="title">
-            <h1>EXPERIENCE</h1>
+            <h1>Experience</h1>
         </div>
 
         <div class="in-flex">
@@ -63,7 +63,7 @@
 
     <section class="homee">
         <div class="title">
-            <h1>EDUCATION</h1>
+            <h1>Education</h1>
         </div>
 
         <div class="in-flexx">
@@ -85,90 +85,67 @@
         </div>
     </section>
 
-    <section class="homee">
-        <div class="title">
-            <h1>Certifications</h1>
-        </div>
+  <section class="homee">
+    <div class="title">
+        <h1>Certifications</h1>
+    </div>
 
-        <div class="in-flexx cert-card" data-cert="finder" data-image="img/finder.jpeg" data-issuer="Capacítate el Empleo" data-date="2025">
-            <h1>Finder</h1>
-            <h3>Capacítate el Empleo</h3>
-            <p>2025</p>
-            <div class="cert-preview">
-                <img class="preview-image" src="" alt="Preview">
-                <h4 class="preview-title"></h4>
-                <p class="preview-info"></p>
-                <button class="preview-btn">
-                    <i class='bx bx-show'></i>
-                    <span>Ver certificado completo</span>
-                </button>
-            </div>
+    <div class="in-flexx cert-card" data-cert="finder" data-image="img/finder.jpeg" data-issuer="Capacítate el Empleo" data-date="2025">
+        <h1>Finder</h1>
+        <h3>Capacítate el Empleo</h3>
+        <p>2025</p>
+        <div class="cert-preview">
+            <img class="preview-image" src="img/finder.jpeg" alt="Preview del certificado">
         </div>
+    </div>
 
-        <div class="in-flexx cert-card" data-cert="computer_repair" data-image="img/computer_repair.png" data-issuer="Capacítate el Empleo" data-date="2025">
-            <h1>Computer equipment installation and repair technician</h1>
-            <h3>Capacítate el Empleo</h3>
-            <p>2025</p>
-            <div class="cert-preview">
-                <img class="preview-image" src="" alt="Preview">
-                <h4 class="preview-title"></h4>
-                <p class="preview-info"></p>
-                <button class="preview-btn">
-                    <i class='bx bx-show'></i>
-                    <span>Ver certificado completo</span>
-                </button>
-            </div>
+    <div class="in-flexx cert-card" data-cert="computer_repair" data-image="img/computer_repair.png" data-issuer="Capacítate el Empleo" data-date="2025">
+        <h1>Computer equipment installation and repair technician</h1>
+        <h3>Capacítate el Empleo</h3>
+        <p>2025</p>
+        <div class="cert-preview">
+            <img class="preview-image" src="img/computer_repair.png" alt="Preview del certificado">
         </div>
+    </div>
 
-        <div class="in-flexx cert-card" data-cert="office_automation" data-image="img/office_automation.png" data-issuer="Capacítate el Empleo" data-date="2025">
-            <h1>Computer Technician (Office Automation)</h1>
-            <h3>Capacítate el Empleo</h3>
-            <p>2025</p>
-            <div class="cert-preview">
-                <img class="preview-image" src="" alt="Preview">
-                <h4 class="preview-title"></h4>
-                <p class="preview-info"></p>
-                <button class="preview-btn">
-                    <i class='bx bx-show'></i>
-                    <span>Ver certificado completo</span>
-                </button>
-            </div>
+    <div class="in-flexx cert-card" data-cert="office_automation" data-image="img/office_automation.png" data-issuer="Capacítate el Empleo" data-date="2025">
+        <h1>Computer Technician (Office Automation)</h1>
+        <h3>Capacítate el Empleo</h3>
+        <p>2025</p>
+        <div class="cert-preview">
+            <img class="preview-image" src="img/office_automation.png" alt="Preview del certificado">
         </div>
+    </div>
 
-        <div class="in-flexx cert-card" data-cert="control_version" data-image="img/control_version.png" data-issuer="Capacítate el Empleo" data-date="2020">
-            <h1>Control Version</h1>
-            <h3>Capacítate el Empleo</h3>
-            <p>2020</p>
-            <div class="cert-preview">
-                <img class="preview-image" src="" alt="Preview">
-                <h4 class="preview-title"></h4>
-                <p class="preview-info"></p>
-                <button class="preview-btn">
-                    <i class='bx bx-show'></i>
-                    <span>Ver certificado completo</span>
-                </button>
-            </div>
+    <div class="in-flexx cert-card" data-cert="control_version" data-image="img/control_version.png" data-issuer="Capacítate el Empleo" data-date="2020">
+        <h1>Control Version</h1>
+        <h3>Capacítate el Empleo</h3>
+        <p>2020</p>
+        <div class="cert-preview">
+            <img class="preview-image" src="img/control_version.png" alt="Preview del certificado">
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- MODAL PARA VER CERTIFICADO COMPLETO -->
-    <div id="certModal" class="cert-modal">
-        <div class="cert-modal-content">
-            <span class="cert-modal-close">&times;</span>
-            <div class="cert-modal-header">
-                <h2 id="modalTitle">Certificado</h2>
+<!-- MODAL PARA VER CERTIFICADO COMPLETO (al hacer clic) -->
+<div id="certModal" class="cert-modal">
+    <div class="cert-modal-content">
+        <span class="cert-modal-close">&times;</span>
+        <div class="cert-modal-header">
+            <h2 id="modalTitle">Certificado</h2>
+        </div>
+        <div class="cert-modal-body">
+            <div class="cert-image-container">
+                <img id="certImage" src="" alt="Certificado completo">
             </div>
-            <div class="cert-modal-body">
-                <div class="cert-image-container">
-                    <img id="certImage" src="" alt="Certificado">
-                </div>
-                <div class="cert-info">
-                    <p id="certIssuer"></p>
-                    <p id="certDate"></p>
-                </div>
+            <div class="cert-info">
+                <p id="certIssuer"></p>
+                <p id="certDate"></p>
             </div>
         </div>
     </div>
+</div>
+
 
     <script>
         // Menú hamburguesa
@@ -208,96 +185,58 @@
             updateThemeIcon(newTheme);
         });
 
-        // ========================================
-        // LÓGICA PARA CERTIFICADOS CON POP-OUT WINDOW
-        // ========================================
+       // ========================================
+// LÓGICA PARA CERTIFICADOS CON POP-OUT DE IMAGEN
+// ========================================
 
-        // Elementos del DOM
-        const modal = document.getElementById('certModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const certImage = document.getElementById('certImage');
-        const certIssuer = document.getElementById('certIssuer');
-        const certDate = document.getElementById('certDate');
-        const closeBtn = document.querySelector('.cert-modal-close');
+const modal = document.getElementById('certModal');
+const modalTitle = document.getElementById('modalTitle');
+const certImage = document.getElementById('certImage');
+const certIssuer = document.getElementById('certIssuer');
+const certDate = document.getElementById('certDate');
+const closeBtn = document.querySelector('.cert-modal-close');
 
-        // Función para abrir el modal con la imagen completa
-        function openCertificateModal(certCard) {
-            const title = certCard.querySelector('h1').textContent;
-            const image = certCard.getAttribute('data-image');
-            const issuer = certCard.getAttribute('data-issuer');
-            const date = certCard.getAttribute('data-date');
-            
-            if (image) {
-                modalTitle.textContent = title;
-                certImage.src = image;
-                certImage.alt = `Certificado: ${title}`;
-                certIssuer.textContent = issuer;
-                certDate.textContent = date;
-                
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
+function openCertificateModal(certCard) {
+    const title = certCard.querySelector('h1').textContent;
+    const image = certCard.getAttribute('data-image');
+    const issuer = certCard.getAttribute('data-issuer');
+    const date = certCard.getAttribute('data-date');
+    
+    if (image) {
+        modalTitle.textContent = title;
+        certImage.src = image;
+        certImage.alt = `Certificado: ${title}`;
+        certIssuer.textContent = issuer;
+        certDate.textContent = date;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
 
-        // Función para cerrar el modal
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
 
-        // Eventos del modal
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeModal);
-        }
+if (closeBtn) closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); });
 
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && modal.style.display === 'block') {
-                closeModal();
-            }
-        });
-
-        // Configurar los pop-outs con los datos del HTML
-        document.querySelectorAll('.cert-card').forEach((card) => {
-            const imageSrc = card.getAttribute('data-image');
-            const title = card.querySelector('h1').textContent;
-            const issuer = card.getAttribute('data-issuer');
-            const date = card.getAttribute('data-date');
-            
-            const preview = card.querySelector('.cert-preview');
-            if (preview) {
-                const previewImg = preview.querySelector('.preview-image');
-                const previewTitle = preview.querySelector('.preview-title');
-                const previewInfo = preview.querySelector('.preview-info');
-                
-                if (previewImg) previewImg.src = imageSrc;
-                if (previewTitle) previewTitle.textContent = title;
-                if (previewInfo) previewInfo.textContent = `${issuer} • ${date}`;
-            }
-            
-            // Evento click en la tarjeta (excepto en el botón)
-            card.addEventListener('click', (event) => {
-                if (event.target.closest('.preview-btn')) {
-                    return;
-                }
-                event.stopPropagation();
-                openCertificateModal(card);
-            });
-            
-            // Evento click en el botón del pop-out
-            const previewBtn = card.querySelector('.preview-btn');
-            if (previewBtn) {
-                previewBtn.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    openCertificateModal(card);
-                });
-            }
-        });
+// Cargar las imágenes en los pop-outs y asignar evento de clic
+document.querySelectorAll('.cert-card').forEach((card) => {
+    const imageSrc = card.getAttribute('data-image');
+    const previewImg = card.querySelector('.preview-image');
+    if (previewImg && imageSrc) {
+        previewImg.src = imageSrc;
+        previewImg.alt = `Vista previa de ${card.querySelector('h1').textContent}`;
+    }
+    
+    // Al hacer clic en la tarjeta (o en la imagen del pop-out) se abre el modal
+    card.addEventListener('click', (event) => {
+        event.stopPropagation();
+        openCertificateModal(card);
+    });
+});
     </script>
 </body>
 </html>
