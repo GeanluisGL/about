@@ -7,21 +7,71 @@
     <link rel="stylesheet" href="Css/style.css">
     <link rel="icon" href="https://img.icons8.com/material/24/under-computer--v1.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Estilos para el botón de idioma (mismo estilo que theme-toggle) */
+        .lang-toggle {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: 600;
+            background-color: var(--bg-secondary, #f0f0f0);
+            color: var(--text-primary, #333);
+            margin-left: 0.5rem;
+        }
+        .lang-toggle:hover {
+            transform: scale(1.05);
+            background-color: var(--accent-color, #0a66c2);
+            color: white;
+        }
+        [data-theme="dark"] .lang-toggle {
+            background-color: var(--bg-secondary, #2d2d2d);
+            color: var(--text-primary, #eee);
+        }
+        [data-theme="dark"] .lang-toggle:hover {
+            background-color: var(--accent-color, #0a66c2);
+        }
+        @media (max-width: 768px) {
+            .lang-toggle {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+                margin-left: 0;
+            }
+        }
+        /* Ajuste para los labels del modal */
+        .cert-info p {
+            margin: 0.5rem 0;
+        }
+        .cert-label {
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
-        <a href="https://geanluisgl.github.io/gy/" class="logo">Portfolio</a>
+        <a href="https://geanluisgl.github.io/gy/" class="logo" data-i18n="logo">Portfolio</a>
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="https://geanluisgl.github.io/gy/">Home</a></li>
-                <li><a href="https://geanluisgl.github.io/about/" class="active">About</a></li>
-                <li><a href="https://geanluisgl.github.io/skill/">Skills</a></li>
-                <li><a href="https://geanluisgl.github.io/project/">Projects</a></li>
-                <li><a href="https://geanluisgl.github.io/contact/">Contact</a></li>
+                <li><a href="https://geanluisgl.github.io/gy/" data-i18n="nav_home">Home</a></li>
+                <li><a href="https://geanluisgl.github.io/about/" class="active" data-i18n="nav_about">About</a></li>
+                <li><a href="https://geanluisgl.github.io/skill/" data-i18n="nav_skills">Skills</a></li>
+                <li><a href="https://geanluisgl.github.io/project/" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="https://geanluisgl.github.io/contact/" data-i18n="nav_contact">Contact</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
                 <i class='bx bx-moon'></i>
             </button>
+            <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma">ES</button>
             <button class="nav-toggle" aria-label="Abrir menú">
                 <i class='bx bx-menu' style="font-size: 2rem;"></i>
             </button>
@@ -30,222 +80,365 @@
 
     <section class="home">
         <div class="title">
-            <h1>Experience</h1>
+            <h1 data-i18n="exp_title">Experience</h1>
         </div>
 
         <div class="in-flex">
-            <h1>Agent Discovery</h1>
-            <h3>Media Monitors | 2025-Present</h3>
-            <p>Evaluated ad campaign performance through data analysis. Used tools like Google Analytics, Google researches and library documentation. Delivered actionable reports to improve targeting. Collaborated with marketing teams to refine messaging and audiences. Skilled in Excel, Data Studio, and strategic thinking.</p>
+            <h1 data-i18n="exp1_title">Agent Discovery</h1>
+            <h3 data-i18n="exp1_subtitle">Media Monitors | 2025-Present</h3>
+            <p data-i18n="exp1_desc">Evaluated ad campaign performance through data analysis. Used tools like Google Analytics, Google researches and library documentation. Delivered actionable reports to improve targeting. Collaborated with marketing teams to refine messaging and audiences. Skilled in Excel, Data Studio, and strategic thinking.</p>
         </div>
 
         <div class="in-flex">
-            <h1>Freelance Developer</h1>
-            <h3>2022-Present</h3>
-            <p>Engages in various projects, gaining experience in multiple technologies and development approaches. Demonstrates adaptability to diverse requirements and technologies, delivering efficient and functional solutions tailored to different user needs.</p>
-            <p>Develops scalable and well-structured applications using architectures such as MVC and Onion in .NET, focusing on separation of concerns and best development practices.</p>
-            <p style="margin-top: 0.5rem; font-style: italic;">(You can see it in more detail in the projects section.)</p>
+            <h1 data-i18n="exp2_title">Freelance Developer</h1>
+            <h3 data-i18n="exp2_subtitle">2022-Present</h3>
+            <p data-i18n="exp2_desc1">Engages in various projects, gaining experience in multiple technologies and development approaches. Demonstrates adaptability to diverse requirements and technologies, delivering efficient and functional solutions tailored to different user needs.</p>
+            <p data-i18n="exp2_desc2">Develops scalable and well-structured applications using architectures such as MVC and Onion in .NET, focusing on separation of concerns and best development practices.</p>
+            <p style="margin-top: 0.5rem; font-style: italic;" data-i18n="exp2_note">(You can see it in more detail in the projects section.)</p>
         </div>
 
         <div class="in-flex">
-            <h1>Home Helper, Staff Trainer</h1>
-            <h3>Sociedad Dominicana de los Testigos de Jehová | 2023-2025</h3>
-            <p>Facility Supervision: Supervises facility conditions to maintain cleanliness, organization, and proper maintenance in common and residential areas, prioritizing residents' well-being. Enforces safety measures to protect employees, customers, and company assets. Includes training new employees, providing guidance on procedures, policies, and safety standards while supporting the team in daily tasks.</p>
+            <h1 data-i18n="exp3_title">Home Helper, Staff Trainer</h1>
+            <h3 data-i18n="exp3_subtitle">Sociedad Dominicana de los Testigos de Jehová | 2023-2025</h3>
+            <p data-i18n="exp3_desc">Facility Supervision: Supervises facility conditions to maintain cleanliness, organization, and proper maintenance in common and residential areas, prioritizing residents' well-being. Enforces safety measures to protect employees, customers, and company assets. Includes training new employees, providing guidance on procedures, policies, and safety standards while supporting the team in daily tasks.</p>
         </div>
 
         <div class="in-flex">
-            <h1>Technical Support</h1>
-            <h3>Ferreteria Mirasol | 2017-2023</h3>
-            <p>Technical Troubleshooting and Data Management, handles software and hardware issues to ensure seamless and efficient operations, diagnoses system failures, identifies root causes, and implements effective solutions to maintain system integrity and functionality.</p>
-            <p>Record purchases and sales, manually or through automated systems, ensuring data accuracy and timely updates. This is critical to prevent inventory or financial discrepancies and support effective decision-making.</p>
+            <h1 data-i18n="exp4_title">Technical Support</h1>
+            <h3 data-i18n="exp4_subtitle">Ferreteria Mirasol | 2017-2023</h3>
+            <p data-i18n="exp4_desc1">Technical Troubleshooting and Data Management, handles software and hardware issues to ensure seamless and efficient operations, diagnoses system failures, identifies root causes, and implements effective solutions to maintain system integrity and functionality.</p>
+            <p data-i18n="exp4_desc2">Record purchases and sales, manually or through automated systems, ensuring data accuracy and timely updates. This is critical to prevent inventory or financial discrepancies and support effective decision-making.</p>
         </div>
     </section>
 
     <section class="homee">
         <div class="title">
-            <h1>Education</h1>
+            <h1 data-i18n="edu_title">Education</h1>
         </div>
 
         <div class="in-flexx">
-            <h1>Software Developer</h1>
-            <h3>Instituto Tecnológico de las Américas (ITLA)</h3>
-            <p>2021-Present</p>
+            <h1 data-i18n="edu1_title">Software Developer</h1>
+            <h3 data-i18n="edu1_institution">Instituto Tecnológico de las Américas (ITLA)</h3>
+            <p data-i18n="edu1_date">2021-Present</p>
         </div>
 
         <div class="in-flexx">
-            <h1>Mathematics & Technology</h1>
-            <h3>Centro Educativo en Artes Club Mauricio Baez</h3>
-            <p>2019-2020</p>
+            <h1 data-i18n="edu2_title">Mathematics & Technology</h1>
+            <h3 data-i18n="edu2_institution">Centro Educativo en Artes Club Mauricio Baez</h3>
+            <p data-i18n="edu2_date">2019-2020</p>
         </div>
 
         <div class="in-flexx">
-            <h1>Arts: Cinematography and Photography</h1>
-            <h3>Centro Educativo en Artes Club Mauricio Baez</h3>
-            <p>2016-2019</p>
+            <h1 data-i18n="edu3_title">Arts: Cinematography and Photography</h1>
+            <h3 data-i18n="edu3_institution">Centro Educativo en Artes Club Mauricio Baez</h3>
+            <p data-i18n="edu3_date">2016-2019</p>
         </div>
     </section>
 
-  <section class="homee">
-    <div class="title">
-        <h1>Certifications</h1>
-    </div>
-
-    <div class="in-flexx cert-card" data-cert="finder" data-image="Img/finder.jpeg" data-issuer="Capacítate el Empleo" data-date="2025">
-        <h1>Finder</h1>
-        <h3>Capacítate el Empleo</h3>
-        <p>2025</p>
-        <div class="cert-preview">
-            <img class="preview-image" src="Img/finder.jpeg" alt="Preview del certificado">
+    <section class="homee">
+        <div class="title">
+            <h1 data-i18n="cert_title">Certifications</h1>
         </div>
-    </div>
 
-    <div class="in-flexx cert-card" data-cert="computer_repair" data-image="Img/computer_repair.png" data-issuer="Capacítate el Empleo" data-date="2025">
-        <h1>Computer equipment installation and repair technician</h1>
-        <h3>Capacítate el Empleo</h3>
-        <p>2025</p>
-        <div class="cert-preview">
-            <img class="preview-image" src="Img/computer_repair.png" alt="Preview del certificado">
-        </div>
-    </div>
-
-    <div class="in-flexx cert-card" data-cert="office_automation" data-image="Img/office_automation.png" data-issuer="Capacítate el Empleo" data-date="2025">
-        <h1>Computer Technician (Office Automation)</h1>
-        <h3>Capacítate el Empleo</h3>
-        <p>2025</p>
-        <div class="cert-preview">
-            <img class="preview-image" src="Img/office_automation.png" alt="Preview del certificado">
-        </div>
-    </div>
-
-     <div class="in-flexx cert-card" data-cert="it_essentials" data-image="Img/IT_Essentials.png" data-issuer="Cisco Networking Academy" data-date="2021">
-        <h1>IT Essentials: PC Hardware and Software</h1>
-        <h3>Cisco Networking Academy</h3>
-        <p>2021</p>
-        <div class="cert-preview">
-            <img class="preview-image" src="/1-About/Img/IT_Essentials.png" alt="Preview del certificado">
-        </div>
-    </div>
-
-    <div class="in-flexx cert-card" data-cert="control_version" data-image="Img/control_version.png" data-issuer="Capacítate el Empleo" data-date="2020">
-        <h1>Control Version</h1>
-        <h3>Capacítate el Empleo</h3>
-        <p>2020</p>
-        <div class="cert-preview">
-            <img class="preview-image" src="/1-About/Img/control_version.png" alt="Preview del certificado">
-        </div>
-    </div>
-</section>
-
-<!-- MODAL PARA VER CERTIFICADO COMPLETO (al hacer clic) -->
-<div id="certModal" class="cert-modal">
-    <div class="cert-modal-content">
-        <span class="cert-modal-close">&times;</span>
-        <div class="cert-modal-header">
-            <h2 id="modalTitle">Certificado</h2>
-        </div>
-        <div class="cert-modal-body">
-            <div class="cert-image-container">
-                <img id="certImage" src="" alt="Certificado completo">
-            </div>
-            <div class="cert-info">
-                <p id="certIssuer"></p>
-                <p id="certDate"></p>
+        <div class="in-flexx cert-card" data-cert="finder" data-image="Img/finder.jpeg" data-issuer="Capacítate el Empleo" data-date="2025">
+            <h1 data-i18n="cert1_title">Finder</h1>
+            <h3 data-i18n="cert1_issuer">Capacítate el Empleo</h3>
+            <p>2025</p>
+            <div class="cert-preview">
+                <img class="preview-image" src="Img/finder.jpeg" alt="Preview del certificado">
             </div>
         </div>
-    </div>
-</div>
 
+        <div class="in-flexx cert-card" data-cert="computer_repair" data-image="Img/computer_repair.png" data-issuer="Capacítate el Empleo" data-date="2025">
+            <h1 data-i18n="cert2_title">Computer equipment installation and repair technician</h1>
+            <h3 data-i18n="cert2_issuer">Capacítate el Empleo</h3>
+            <p>2025</p>
+            <div class="cert-preview">
+                <img class="preview-image" src="Img/computer_repair.png" alt="Preview del certificado">
+            </div>
+        </div>
+
+        <div class="in-flexx cert-card" data-cert="office_automation" data-image="Img/office_automation.png" data-issuer="Capacítate el Empleo" data-date="2025">
+            <h1 data-i18n="cert3_title">Computer Technician (Office Automation)</h1>
+            <h3 data-i18n="cert3_issuer">Capacítate el Empleo</h3>
+            <p>2025</p>
+            <div class="cert-preview">
+                <img class="preview-image" src="Img/office_automation.png" alt="Preview del certificado">
+            </div>
+        </div>
+
+        <div class="in-flexx cert-card" data-cert="it_essentials" data-image="Img/IT_Essentials.png" data-issuer="Cisco Networking Academy" data-date="2021">
+            <h1 data-i18n="cert4_title">IT Essentials: PC Hardware and Software</h1>
+            <h3 data-i18n="cert4_issuer">Cisco Networking Academy</h3>
+            <p>2021</p>
+            <div class="cert-preview">
+                <img class="preview-image" src="/1-About/Img/IT_Essentials.png" alt="Preview del certificado">
+            </div>
+        </div>
+
+        <div class="in-flexx cert-card" data-cert="control_version" data-image="Img/control_version.png" data-issuer="Capacítate el Empleo" data-date="2020">
+            <h1 data-i18n="cert5_title">Control Version</h1>
+            <h3 data-i18n="cert5_issuer">Capacítate el Empleo</h3>
+            <p>2020</p>
+            <div class="cert-preview">
+                <img class="preview-image" src="/1-About/Img/control_version.png" alt="Preview del certificado">
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PARA VER CERTIFICADO COMPLETO -->
+    <div id="certModal" class="cert-modal">
+        <div class="cert-modal-content">
+            <span class="cert-modal-close">&times;</span>
+            <div class="cert-modal-header">
+                <h2 id="modalTitle">Certificado</h2>
+            </div>
+            <div class="cert-modal-body">
+                <div class="cert-image-container">
+                    <img id="certImage" src="" alt="Certificado completo">
+                </div>
+                <div class="cert-info">
+                    <p><span class="cert-label" data-i18n="modal_issuer_label">Issuer:</span> <span id="certIssuer"></span></p>
+                    <p><span class="cert-label" data-i18n="modal_date_label">Date:</span> <span id="certDate"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Menú hamburguesa
+        // ---------- TRADUCCIONES ----------
+        const translations = {
+            en: {
+                title: "Geanluis Lorenzo | About",
+                logo: "Portfolio",
+                nav_home: "Home",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                exp_title: "Experience",
+                exp1_title: "Agent Discovery",
+                exp1_subtitle: "Media Monitors | 2025-Present",
+                exp1_desc: "Evaluated ad campaign performance through data analysis. Used tools like Google Analytics, Google researches and library documentation. Delivered actionable reports to improve targeting. Collaborated with marketing teams to refine messaging and audiences. Skilled in Excel, Data Studio, and strategic thinking.",
+                exp2_title: "Freelance Developer",
+                exp2_subtitle: "2022-Present",
+                exp2_desc1: "Engages in various projects, gaining experience in multiple technologies and development approaches. Demonstrates adaptability to diverse requirements and technologies, delivering efficient and functional solutions tailored to different user needs.",
+                exp2_desc2: "Develops scalable and well-structured applications using architectures such as MVC and Onion in .NET, focusing on separation of concerns and best development practices.",
+                exp2_note: "(You can see it in more detail in the projects section.)",
+                exp3_title: "Home Helper, Staff Trainer",
+                exp3_subtitle: "Sociedad Dominicana de los Testigos de Jehová | 2023-2025",
+                exp3_desc: "Facility Supervision: Supervises facility conditions to maintain cleanliness, organization, and proper maintenance in common and residential areas, prioritizing residents' well-being. Enforces safety measures to protect employees, customers, and company assets. Includes training new employees, providing guidance on procedures, policies, and safety standards while supporting the team in daily tasks.",
+                exp4_title: "Technical Support",
+                exp4_subtitle: "Ferreteria Mirasol | 2017-2023",
+                exp4_desc1: "Technical Troubleshooting and Data Management, handles software and hardware issues to ensure seamless and efficient operations, diagnoses system failures, identifies root causes, and implements effective solutions to maintain system integrity and functionality.",
+                exp4_desc2: "Record purchases and sales, manually or through automated systems, ensuring data accuracy and timely updates. This is critical to prevent inventory or financial discrepancies and support effective decision-making.",
+                edu_title: "Education",
+                edu1_title: "Software Developer",
+                edu1_institution: "Instituto Tecnológico de las Américas (ITLA)",
+                edu1_date: "2021-Present",
+                edu2_title: "Mathematics & Technology",
+                edu2_institution: "Centro Educativo en Artes Club Mauricio Baez",
+                edu2_date: "2019-2020",
+                edu3_title: "Arts: Cinematography and Photography",
+                edu3_institution: "Centro Educativo en Artes Club Mauricio Baez",
+                edu3_date: "2016-2019",
+                cert_title: "Certifications",
+                cert1_title: "Finder",
+                cert1_issuer: "Capacítate el Empleo",
+                cert2_title: "Computer equipment installation and repair technician",
+                cert2_issuer: "Capacítate el Empleo",
+                cert3_title: "Computer Technician (Office Automation)",
+                cert3_issuer: "Capacítate el Empleo",
+                cert4_title: "IT Essentials: PC Hardware and Software",
+                cert4_issuer: "Cisco Networking Academy",
+                cert5_title: "Control Version",
+                cert5_issuer: "Capacítate el Empleo",
+                modal_issuer_label: "Issuer:",
+                modal_date_label: "Date:"
+            },
+            es: {
+                title: "Geanluis Lorenzo | Acerca de",
+                logo: "Portafolio",
+                nav_home: "Inicio",
+                nav_about: "Acerca de",
+                nav_skills: "Habilidades",
+                nav_projects: "Proyectos",
+                nav_contact: "Contacto",
+                exp_title: "Experiencia",
+                exp1_title: "Agent Discovery",
+                exp1_subtitle: "Media Monitors | 2025-Presente",
+                exp1_desc: "Evaluación del rendimiento de campañas publicitarias mediante análisis de datos. Uso de herramientas como Google Analytics, investigaciones de Google y documentación de bibliotecas. Entrega de informes prácticos para mejorar la segmentación. Colaboración con equipos de marketing para refinar mensajes y audiencias. Habilidades en Excel, Data Studio y pensamiento estratégico.",
+                exp2_title: "Desarrollador Freelance",
+                exp2_subtitle: "2022-Presente",
+                exp2_desc1: "Participa en diversos proyectos, adquiriendo experiencia en múltiples tecnologías y enfoques de desarrollo. Demuestra adaptabilidad a distintos requisitos y tecnologías, entregando soluciones eficientes y funcionales adaptadas a las necesidades del usuario.",
+                exp2_desc2: "Desarrolla aplicaciones escalables y bien estructuradas usando arquitecturas como MVC y Onion en .NET, enfocándose en la separación de preocupaciones y buenas prácticas de desarrollo.",
+                exp2_note: "(Puedes verlo con más detalle en la sección de proyectos.)",
+                exp3_title: "Ayudante del Hogar, Capacitador de Personal",
+                exp3_subtitle: "Sociedad Dominicana de los Testigos de Jehová | 2023-2025",
+                exp3_desc: "Supervisión de instalaciones: supervisa las condiciones de las instalaciones para mantener limpieza, organización y mantenimiento adecuado en áreas comunes y residenciales, priorizando el bienestar de los residentes. Aplica medidas de seguridad para proteger empleados, clientes y activos de la empresa. Incluye la formación de nuevos empleados, proporcionando orientación sobre procedimientos, políticas y estándares de seguridad, apoyando al equipo en tareas diarias.",
+                exp4_title: "Soporte Técnico",
+                exp4_subtitle: "Ferretería Mirasol | 2017-2023",
+                exp4_desc1: "Resolución de problemas técnicos y gestión de datos, maneja problemas de software y hardware para garantizar operaciones fluidas y eficientes. Diagnostica fallos del sistema, identifica causas raíz e implementa soluciones efectivas para mantener la integridad y funcionalidad del sistema.",
+                exp4_desc2: "Registro de compras y ventas, manualmente o mediante sistemas automatizados, asegurando la precisión de los datos y actualizaciones oportunas. Esto es crítico para prevenir discrepancias de inventario o financieras y apoyar la toma de decisiones efectiva.",
+                edu_title: "Educación",
+                edu1_title: "Desarrollador de Software",
+                edu1_institution: "Instituto Tecnológico de las Américas (ITLA)",
+                edu1_date: "2021-Presente",
+                edu2_title: "Matemáticas y Tecnología",
+                edu2_institution: "Centro Educativo en Artes Club Mauricio Baez",
+                edu2_date: "2019-2020",
+                edu3_title: "Artes: Cinematografía y Fotografía",
+                edu3_institution: "Centro Educativo en Artes Club Mauricio Baez",
+                edu3_date: "2016-2019",
+                cert_title: "Certificaciones",
+                cert1_title: "Finder",
+                cert1_issuer: "Capacítate el Empleo",
+                cert2_title: "Técnico en instalación y reparación de equipos de computo",
+                cert2_issuer: "Capacítate el Empleo",
+                cert3_title: "Técnico en Computación (Ofimática)",
+                cert3_issuer: "Capacítate el Empleo",
+                cert4_title: "IT Essentials: Hardware y Software de PC",
+                cert4_issuer: "Cisco Networking Academy",
+                cert5_title: "Control de Versiones",
+                cert5_issuer: "Capacítate el Empleo",
+                modal_issuer_label: "Emisor:",
+                modal_date_label: "Fecha:"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+            currentLang = lang;
+            
+            // Actualizar elementos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.value = translations[lang][key];
+                    } else {
+                        el.innerText = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Cambiar título de la página
+            document.title = translations[lang].title;
+            
+            // Actualizar texto del botón de idioma
+            const langToggle = document.getElementById('langToggle');
+            if (langToggle) {
+                langToggle.innerText = lang === 'en' ? 'ES' : 'EN';
+            }
+            
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLang === 'en' ? 'es' : 'en';
+            setLanguage(newLang);
+        }
+
+        // ---------- MENÚ HAMBURGUESA ----------
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Cerrar menú al hacer click en un enlace
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
             });
-        });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
 
-        // Modo nocturno/diurno
+        // ---------- MODO NOCTURNO/DIURNO ----------
         const themeToggle = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
-        
         const savedTheme = localStorage.getItem('theme') || 'light';
         htmlElement.setAttribute('data-theme', savedTheme);
         
         function updateThemeIcon(theme) {
-            const icon = themeToggle.querySelector('i');
-            icon.className = theme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = theme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+            }
         }
-        
         updateThemeIcon(savedTheme);
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+        }
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
+        // ---------- CERTIFICADOS MODAL ----------
+        const modal = document.getElementById('certModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const certImage = document.getElementById('certImage');
+        const certIssuerSpan = document.getElementById('certIssuer');
+        const certDateSpan = document.getElementById('certDate');
+        const closeBtn = document.querySelector('.cert-modal-close');
+
+        function openCertificateModal(certCard) {
+            const titleElem = certCard.querySelector('h1');
+            const title = titleElem ? titleElem.innerText : '';
+            const image = certCard.getAttribute('data-image');
+            const issuer = certCard.getAttribute('data-issuer');
+            const date = certCard.getAttribute('data-date');
+            
+            if (image) {
+                modalTitle.textContent = title;
+                certImage.src = image;
+                certImage.alt = `Certificado: ${title}`;
+                certIssuerSpan.textContent = issuer;
+                certDateSpan.textContent = date;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); });
+
+        // Cargar imágenes previas y asignar evento de clic
+        document.querySelectorAll('.cert-card').forEach((card) => {
+            const imageSrc = card.getAttribute('data-image');
+            const previewImg = card.querySelector('.preview-image');
+            if (previewImg && imageSrc) {
+                previewImg.src = imageSrc;
+                const titleElem = card.querySelector('h1');
+                if (titleElem) previewImg.alt = `Vista previa de ${titleElem.innerText}`;
+            }
+            card.addEventListener('click', (event) => {
+                event.stopPropagation();
+                openCertificateModal(card);
+            });
         });
 
-       // ========================================
-// LÓGICA PARA CERTIFICADOS CON POP-OUT DE IMAGEN
-// ========================================
+        // ---------- INICIALIZAR IDIOMA ----------
+        const savedLang = localStorage.getItem('preferredLang');
+        if (savedLang && translations[savedLang]) {
+            setLanguage(savedLang);
+        } else {
+            const browserLang = navigator.language.split('-')[0];
+            setLanguage(browserLang === 'es' ? 'es' : 'en');
+        }
 
-const modal = document.getElementById('certModal');
-const modalTitle = document.getElementById('modalTitle');
-const certImage = document.getElementById('certImage');
-const certIssuer = document.getElementById('certIssuer');
-const certDate = document.getElementById('certDate');
-const closeBtn = document.querySelector('.cert-modal-close');
-
-function openCertificateModal(certCard) {
-    const title = certCard.querySelector('h1').textContent;
-    const image = certCard.getAttribute('data-image');
-    const issuer = certCard.getAttribute('data-issuer');
-    const date = certCard.getAttribute('data-date');
-    
-    if (image) {
-        modalTitle.textContent = title;
-        certImage.src = image;
-        certImage.alt = `Certificado: ${title}`;
-        certIssuer.textContent = issuer;
-        certDate.textContent = date;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-if (closeBtn) closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); });
-
-// Cargar las imágenes en los pop-outs y asignar evento de clic
-document.querySelectorAll('.cert-card').forEach((card) => {
-    const imageSrc = card.getAttribute('data-image');
-    const previewImg = card.querySelector('.preview-image');
-    if (previewImg && imageSrc) {
-        previewImg.src = imageSrc;
-        previewImg.alt = `Vista previa de ${card.querySelector('h1').textContent}`;
-    }
-    
-    // Al hacer clic en la tarjeta (o en la imagen del pop-out) se abre el modal
-    card.addEventListener('click', (event) => {
-        event.stopPropagation();
-        openCertificateModal(card);
-    });
-});
+        const langToggleBtn = document.getElementById('langToggle');
+        if (langToggleBtn) langToggleBtn.addEventListener('click', toggleLanguage);
     </script>
 </body>
 </html>
