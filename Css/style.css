@@ -4,40 +4,111 @@
    CSS VARIABLES - LIGHT MODE (por defecto)
    ======================================== */
 :root {
+    /* Colores de fondo */
     --bg-primary: #f5f7fa;
     --bg-secondary: #ffffff;
+    --bg-tertiary: #e8ecf1;
+    
+    /* Colores de texto */
     --text-primary: #1a1a2e;
     --text-secondary: #4a4a6a;
     --text-light: #6c6c8a;
+    --text-inverse: #ffffff;
+    
+    /* Colores de acento */
     --accent-primary: #0077b6;
     --accent-secondary: #ffd60a;
     --accent-gradient: linear-gradient(45deg, #0077b6, #ffd60a);
+    --accent-hover: #005a8c;
+    
+    /* Componentes */
     --card-bg: #ffffff;
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
     --header-bg: rgba(255, 255, 255, 0.95);
     --border-color: rgba(0, 0, 0, 0.1);
-    --title-color: #1a1a2e;
+    --border-color-light: rgba(0, 0, 0, 0.05);
+    
+    /* Etiquetas y badges */
+    --tag-bg: #ffc107;
+    --tag-text: #000000;
+    
+    /* Carrusel */
+    --carousel-control-color: #000000;
+    
+    /* Transiciones */
+    --transition-speed: 0.3s;
+    --transition-ease: ease;
+    
+    /* Bordes y radios */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+    --border-radius-xl: 1.5rem;
+    
+    /* Espaciados */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* Tamaños de fuente */
+    --font-size-xs: 0.7rem;
+    --font-size-sm: 0.8rem;
+    --font-size-md: 0.9rem;
+    --font-size-lg: 1rem;
+    --font-size-xl: 1.3rem;
+    --font-size-2xl: 1.8rem;
+    --font-size-3xl: 2.5rem;
+    
+    /* Z-index */
+    --z-header: 1000;
+    --z-preview: 1000;
+    --z-modal: 2000;
 }
 
 /* ========================================
    DARK MODE VARIABLES
    ======================================== */
 [data-theme="dark"] {
+    /* Colores de fondo */
     --bg-primary: #0a0a1a;
     --bg-secondary: #0f0f23;
+    --bg-tertiary: #1a1a35;
+    
+    /* Colores de texto */
     --text-primary: #ffffff;
     --text-secondary: #c4c4d4;
     --text-light: #a0a0b0;
+    --text-inverse: #1a1a2e;
+    
+    /* Colores de acento */
     --accent-primary: #0096e6;
     --accent-secondary: #ffe44d;
     --accent-gradient: linear-gradient(45deg, #0096e6, #ffe44d);
+    --accent-hover: #0077b6;
+    
+    /* Componentes */
     --card-bg: #15152a;
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.5);
     --header-bg: rgba(15, 15, 35, 0.95);
     --border-color: rgba(255, 255, 255, 0.1);
-    --title-color: #ffffff;
+    --border-color-light: rgba(255, 255, 255, 0.05);
+    
+    /* Etiquetas y badges */
+    --tag-bg: #ffc107;
+    --tag-text: #000000;
+    
+    /* Carrusel */
+    --carousel-control-color: #ffffff;
 }
 
+/* ========================================
+   RESET Y ESTILOS BASE
+   ======================================== */
 * {
     margin: 0;
     padding: 0;
@@ -45,14 +116,22 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--bg-primary);
     color: var(--text-primary);
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background var(--transition-speed) var(--transition-ease), 
+                color var(--transition-speed) var(--transition-ease);
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* ========== SCROLLBAR PERSONALIZADO ========== */
+/* ========================================
+   SCROLLBAR PERSONALIZADO
+   ======================================== */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -63,32 +142,36 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: var(--accent-primary);
-    border-radius: 4px;
+    border-radius: var(--border-radius-sm);
+    transition: background var(--transition-speed) var(--transition-ease);
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-secondary);
 }
 
-/* ========== HEADER ========== */
+/* ========================================
+   HEADER Y NAVEGACIÓN
+   ======================================== */
 .header {
     width: 100%;
-    padding: 1rem 10%;
+    padding: var(--spacing-md) 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: var(--header-bg);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: var(--z-header);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
+    transition: background var(--transition-speed) var(--transition-ease);
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: var(--font-size-xl);
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 700;
@@ -98,28 +181,27 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* ========== NAVEGACIÓN ========== */
 .navbar {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: var(--spacing-xl);
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: var(--spacing-xl);
     list-style: none;
 }
 
 .nav-links li a {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: var(--font-size-lg);
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) var(--transition-ease);
     position: relative;
-    padding: 0.5rem 0;
+    padding: var(--spacing-sm) 0;
 }
 
 .nav-links li a::after {
@@ -130,7 +212,7 @@ body {
     width: 0;
     height: 2px;
     background: var(--accent-gradient);
-    transition: width 0.3s ease;
+    transition: width var(--transition-speed) var(--transition-ease);
 }
 
 .nav-links li a:hover::after,
@@ -146,7 +228,9 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* ========== BOTÓN DE TEMA ========== */
+/* ========================================
+   BOTÓN DE TEMA (Dark/Light)
+   ======================================== */
 .theme-toggle {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
@@ -157,32 +241,47 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) var(--transition-ease);
 }
 
 .theme-toggle i {
-    font-size: 1.2rem;
+    font-size: var(--font-size-xl);
     color: var(--text-primary);
+    transition: color var(--transition-speed) var(--transition-ease);
 }
 
 .theme-toggle:hover {
     transform: scale(1.1);
+    border-color: var(--accent-primary);
 }
 
-/* ========== BOTÓN HAMBURGUESA ========== */
+/* ========================================
+   BOTÓN HAMBURGUESA (Mobile)
+   ======================================== */
 .nav-toggle {
     display: none;
     background: none;
     border: none;
     cursor: pointer;
     color: var(--text-primary);
+    font-size: var(--font-size-2xl);
+    transition: color var(--transition-speed) var(--transition-ease);
 }
 
-/* ========== SECCIONES PRINCIPALES ========== */
+.nav-toggle:hover {
+    color: var(--accent-primary);
+}
+
+/* ========================================
+   SECCIONES PRINCIPALES
+   ======================================== */
 .home, .homee {
     padding: 120px 10% 60px;
     max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
 }
 
 .home {
@@ -193,15 +292,17 @@ body {
     animation: slideRight 0.8s ease forwards;
 }
 
-/* ========== TÍTULOS ========== */
+/* ========================================
+   TÍTULOS
+   ======================================== */
 .title {
     width: 100%;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing-2xl);
 }
 
 .title h1 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
@@ -209,61 +310,66 @@ body {
     font-weight: 700;
 }
 
-/* ========== TARJETAS ========== */
-.in-flex, .in-flexx {
+/* ========================================
+   TARJETAS (Certificados)
+   ======================================== */
+.in-flex, 
+.in-flexx {
     background: var(--card-bg);
-    border-radius: 1rem;
-    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
     box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all var(--transition-speed) var(--transition-ease);
     border: 1px solid var(--border-color);
-    flex: 1 1 calc(50% - 2rem);
+    flex: 1 1 calc(50% - var(--spacing-xl));
     min-width: 280px;
 }
 
-.in-flex:hover, .in-flexx:hover {
+.in-flex:hover, 
+.in-flexx:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--card-shadow-hover);
 }
 
-.in-flex h1, .in-flexx h1 {
-    font-size: 1.3rem;
+.in-flex h1, 
+.in-flexx h1 {
+    font-size: var(--font-size-xl);
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-sm);
 }
 
-.in-flex h3, .in-flexx h3 {
-    font-size: 0.9rem;
+.in-flex h3, 
+.in-flexx h3 {
+    font-size: var(--font-size-md);
     color: var(--accent-primary);
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
     font-weight: 500;
 }
 
-.in-flex p, .in-flexx p {
-    font-size: 0.9rem;
+.in-flex p, 
+.in-flexx p {
+    font-size: var(--font-size-md);
     line-height: 1.6;
     color: var(--text-light);
 }
 
-/* Contenedor flex para las tarjetas */
-.home, .homee {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
 /* ========================================
-   POP-OUT WINDOW PARA IMAGEN DEL CERTIFICADO
+   TARJETAS DE CERTIFICADOS (Pop-out)
    ======================================== */
 .cert-card {
     position: relative;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) var(--transition-ease);
     cursor: pointer;
     z-index: 1;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--card-shadow) !important;
+    text-align: center;
 }
 
 .cert-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--card-shadow-hover) !important;
     z-index: 2;
 }
 
@@ -276,15 +382,15 @@ body {
     width: auto;
     max-width: 350px;
     background: var(--card-bg);
-    border-radius: 1rem;
+    border-radius: var(--border-radius-lg);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 1000;
-    padding: 0.8rem;
+    z-index: var(--z-preview);
+    padding: var(--spacing-sm);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
-    pointer-events: none; /* Para que no interfiera con el clic en la tarjeta */
+    pointer-events: none;
 }
 
 .cert-card:hover .cert-preview {
@@ -299,11 +405,13 @@ body {
     max-width: 320px;
     max-height: 400px;
     height: auto;
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-md);
     object-fit: contain;
     display: block;
     margin: 0 auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
 }
 
 /* Efecto de brillo en la tarjeta al hacer hover */
@@ -317,7 +425,7 @@ body {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     transition: left 0.5s ease;
     pointer-events: none;
-    border-radius: 1rem;
+    border-radius: var(--border-radius-lg);
 }
 
 .cert-card:hover::before {
@@ -332,7 +440,94 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* Animación de entrada del pop-out */
+/* ========================================
+   ETIQUETAS Y BADGES
+   ======================================== */
+.tag {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: bold;
+}
+
+.tag-warning {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+}
+
+/* ========================================
+   CARRUSEL DE BOOTSTRAP
+   ======================================== */
+.carousel-cert-card {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.carousel-item .cert-card {
+    height: 100%;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--card-shadow) !important;
+    border-radius: var(--border-radius-lg);
+}
+
+.carousel-item .cert-card h1 {
+    color: var(--text-primary);
+}
+
+.carousel-item .cert-card h3 {
+    color: var(--accent-primary);
+}
+
+.carousel-item .cert-card p,
+.carousel-item .cert-card span {
+    color: var(--text-secondary);
+}
+
+.cert-preview .preview-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    background: var(--bg-secondary);
+}
+
+/* Controles del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--carousel-control-color);
+    border-radius: 50%;
+    padding: 20px;
+    background-size: 60%;
+    opacity: 0.7;
+    transition: opacity var(--transition-speed) var(--transition-ease);
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    opacity: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: var(--text-primary);
+    opacity: 0.5;
+    transition: opacity var(--transition-speed) var(--transition-ease);
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+/* ========================================
+   ANIMACIÓN DEL POP-OUT
+   ======================================== */
 @keyframes popIn {
     0% {
         opacity: 0;
@@ -351,43 +546,21 @@ body {
     animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
-/* Responsive para móviles */
-@media (max-width: 768px) {
-    .cert-preview {
-        max-width: 280px;
-        padding: 0.6rem;
-    }
-    .preview-image {
-        max-width: 260px;
-        max-height: 320px;
-    }
-}
-
-@media (max-width: 480px) {
-    .cert-preview {
-        max-width: 240px;
-        padding: 0.5rem;
-    }
-    .preview-image {
-        max-width: 220px;
-        max-height: 280px;
-    }
-}
-
 /* ========================================
    MODAL PARA VER CERTIFICADO COMPLETO
    ======================================== */
 .cert-modal {
     display: none;
     position: fixed;
-    z-index: 2000;
+    z-index: var(--z-modal);
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(5px);
-    animation: fadeIn 0.3s ease;
+    -webkit-backdrop-filter: blur(5px);
+    animation: fadeIn var(--transition-speed) var(--transition-ease);
 }
 
 .cert-modal-content {
@@ -397,37 +570,37 @@ body {
     padding: 0;
     width: 90%;
     max-width: 650px;
-    border-radius: 1rem;
+    border-radius: var(--border-radius-lg);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    animation: slideDown 0.3s ease;
+    animation: slideDown var(--transition-speed) var(--transition-ease);
     border: 1px solid var(--border-color);
 }
 
 .cert-modal-header {
-    padding: 1rem 1.5rem;
+    padding: var(--spacing-md) var(--spacing-lg);
     border-bottom: 1px solid var(--border-color);
     position: relative;
 }
 
 .cert-modal-header h2 {
-    font-size: 1.2rem;
+    font-size: var(--font-size-xl);
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
-    padding-right: 2rem;
+    padding-right: var(--spacing-xl);
 }
 
 .cert-modal-close {
     position: absolute;
-    top: 0.8rem;
-    right: 1.2rem;
-    font-size: 1.8rem;
+    top: var(--spacing-sm);
+    right: var(--spacing-xl);
+    font-size: var(--font-size-2xl);
     font-weight: bold;
     color: var(--text-light);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) var(--transition-ease);
     line-height: 1;
     z-index: 10;
 }
@@ -438,7 +611,7 @@ body {
 }
 
 .cert-modal-body {
-    padding: 1rem;
+    padding: var(--spacing-md);
     text-align: center;
 }
 
@@ -446,7 +619,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.5rem 0;
+    margin: var(--spacing-sm) 0;
 }
 
 #certImage {
@@ -454,10 +627,10 @@ body {
     max-height: 450px;
     width: auto;
     height: auto;
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-md);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     background: var(--bg-secondary);
-    padding: 0.5rem;
+    padding: var(--spacing-sm);
     object-fit: contain;
     margin: 0 auto;
     display: block;
@@ -465,232 +638,100 @@ body {
 
 .cert-info {
     text-align: center;
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
     border-top: 1px solid var(--border-color);
 }
 
-#certIssuer, #certDate {
+#certIssuer, 
+#certDate {
     color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin: 0.2rem 0;
+    font-size: var(--font-size-sm);
+    margin: var(--spacing-xs) 0;
 }
 
 #certIssuer {
     font-weight: 500;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* ========================================
+   PAGINACIÓN
+   ======================================== */
+.certificates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    width: 100%;
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+    padding: var(--spacing-md);
+    width: 100%;
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-    .header {
-        padding: 1rem 5%;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: var(--header-bg);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 1rem;
-        border-radius: 1rem;
-        gap: 1rem;
-        min-width: 200px;
-        box-shadow: var(--card-shadow);
-        border: 1px solid var(--border-color);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .navbar {
-        gap: 1rem;
-    }
-
-    .home, .homee {
-        padding: 100px 5% 40px;
-    }
-
-    .in-flex, .in-flexx {
-        flex: 1 1 100%;
-    }
-
-    .title h1 {
-        font-size: 1.8rem;
-    }
-
-    /* Pop-out responsive */
-    .cert-preview {
-        min-width: 240px;
-        max-width: 320px;
-        padding: 0.8rem;
-    }
-    
-    .preview-image {
-        max-width: 280px;
-    }
-    
-    .preview-title {
-        font-size: 0.8rem;
-    }
-    
-    .preview-info {
-        font-size: 0.7rem;
-    }
-    
-    .preview-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.75rem;
-    }
-
-    /* Modal responsive */
-    .cert-modal-content {
-        width: 92%;
-        max-width: 500px;
-        margin: 8% auto;
-    }
-    
-    .cert-modal-header h2 {
-        font-size: 0.95rem;
-        padding-right: 1.5rem;
-    }
-    
-    .cert-modal-body {
-        padding: 0.8rem;
-    }
-    
-    #certImage {
-        max-height: 350px;
-        max-width: 95%;
-    }
-    
-    .cert-modal-close {
-        top: 0.6rem;
-        right: 1rem;
-        font-size: 1.6rem;
-    }
-    
-    .cert-info {
-        margin-top: 0.6rem;
-        padding-top: 0.6rem;
-    }
-    
-    #certIssuer, #certDate {
-        font-size: 0.75rem;
-    }
+.pagination-btn {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    transition: all var(--transition-speed) var(--transition-ease);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    box-shadow: var(--card-shadow);
 }
 
-@media (max-width: 480px) {
-    .home, .homee {
-        padding: 90px 4% 30px;
-    }
-
-    .in-flex, .in-flexx {
-        padding: 1rem;
-    }
-
-    .in-flex h1, .in-flexx h1 {
-        font-size: 1.1rem;
-    }
-
-    .in-flex p, .in-flexx p {
-        font-size: 0.85rem;
-    }
-
-    .title h1 {
-        font-size: 1.5rem;
-    }
-
-    /* Pop-out responsive móvil */
-    .cert-preview {
-        min-width: 200px;
-        max-width: 260px;
-        padding: 0.6rem;
-    }
-    
-    .preview-image {
-        max-width: 220px;
-    }
-    
-    .preview-title {
-        font-size: 0.7rem;
-    }
-    
-    .preview-info {
-        font-size: 0.65rem;
-    }
-    
-    .preview-btn {
-        padding: 0.35rem 0.8rem;
-        font-size: 0.7rem;
-    }
-
-    /* Modal responsive móvil */
-    .cert-modal-content {
-        width: 95%;
-        max-width: 400px;
-        margin: 15% auto;
-    }
-    
-    .cert-modal-header {
-        padding: 0.8rem 1rem;
-    }
-    
-    .cert-modal-header h2 {
-        font-size: 0.85rem;
-    }
-    
-    .cert-modal-close {
-        top: 0.5rem;
-        right: 0.8rem;
-        font-size: 1.4rem;
-    }
-    
-    .cert-modal-body {
-        padding: 0.6rem;
-    }
-    
-    #certImage {
-        max-height: 280px;
-        max-width: 98%;
-        padding: 0.3rem;
-    }
-    
-    .cert-info {
-        margin-top: 0.5rem;
-        padding-top: 0.5rem;
-    }
-    
-    #certIssuer, #certDate {
-        font-size: 0.7rem;
-    }
+.pagination-btn:hover:not(:disabled) {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.3);
 }
 
-/* ========== KEYFRAMES ANIMATIONS ========== */
+.pagination-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pagination-btn i {
+    font-size: var(--font-size-sm);
+}
+
+.page-info {
+    color: var(--text-secondary);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-xl);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+}
+
+/* Placeholder cuando no hay imagen */
+.no-image-placeholder {
+    background: var(--bg-secondary);
+    color: var(--text-light);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    border: 2px dashed var(--border-color);
+    text-align: center;
+    font-size: var(--font-size-md);
+}
+
+/* ========================================
+   KEYFRAMES ANIMATIONS
+   ======================================== */
 @keyframes slideTop {
     0% { opacity: 0; transform: translateY(100px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -714,4 +755,382 @@ body {
 @keyframes zoomIn {
     0% { opacity: 0; transform: scale(0); }
     100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MEDIA QUERIES
+   ======================================== */
+
+/* Tablets y dispositivos medianos */
+@media (max-width: 1024px) {
+    .header {
+        padding: var(--spacing-md) 5%;
+    }
+    
+    .home, .homee {
+        padding: 110px 5% 50px;
+        gap: var(--spacing-lg);
+    }
+    
+    .in-flex, .in-flexx {
+        flex: 1 1 calc(50% - var(--spacing-lg));
+    }
+}
+
+/* Tablets pequeñas y móviles grandes */
+@media (max-width: 768px) {
+    /* Header y navegación */
+    .header {
+        padding: var(--spacing-sm) 5%;
+    }
+    
+    .nav-toggle {
+        display: block;
+        font-size: var(--font-size-2xl);
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--header-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-lg);
+        gap: var(--spacing-md);
+        min-width: 200px;
+        box-shadow: var(--card-shadow);
+        border: 1px solid var(--border-color);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .navbar {
+        gap: var(--spacing-md);
+    }
+    
+    /* Secciones */
+    .home, .homee {
+        padding: 100px 5% 40px;
+        gap: var(--spacing-md);
+    }
+    
+    .in-flex, .in-flexx {
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+    
+    .title h1 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    /* Pop-out */
+    .cert-preview {
+        max-width: 280px;
+        padding: var(--spacing-sm);
+    }
+    
+    .preview-image {
+        max-width: 260px;
+        max-height: 320px;
+    }
+    
+    /* Modal */
+    .cert-modal-content {
+        width: 92%;
+        max-width: 500px;
+        margin: 8% auto;
+    }
+    
+    .cert-modal-header h2 {
+        font-size: var(--font-size-md);
+        padding-right: var(--spacing-lg);
+    }
+    
+    .cert-modal-body {
+        padding: var(--spacing-sm);
+    }
+    
+    #certImage {
+        max-height: 350px;
+        max-width: 95%;
+    }
+    
+    .cert-modal-close {
+        top: var(--spacing-sm);
+        right: var(--spacing-md);
+        font-size: var(--font-size-xl);
+    }
+    
+    .cert-info {
+        margin-top: var(--spacing-sm);
+        padding-top: var(--spacing-sm);
+    }
+    
+    #certIssuer, #certDate {
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Carrusel */
+    .carousel-cert-card {
+        max-width: 320px;
+    }
+    
+    .carousel-item .cert-card {
+        min-height: 280px;
+    }
+    
+    /* Paginación */
+    .pagination-container {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+    
+    .pagination-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+    
+    .page-info {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        width: 100%;
+        text-align: center;
+        order: -1;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    .home, .homee {
+        padding: 90px 4% 30px;
+        gap: var(--spacing-sm);
+    }
+    
+    .in-flex, .in-flexx {
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-md);
+    }
+    
+    .in-flex h1, .in-flexx h1 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .in-flex h3, .in-flexx h3 {
+        font-size: var(--font-size-sm);
+    }
+    
+    .in-flex p, .in-flexx p {
+        font-size: var(--font-size-sm);
+    }
+    
+    .title h1 {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Pop-out */
+    .cert-preview {
+        max-width: 220px;
+        padding: var(--spacing-xs);
+    }
+    
+    .preview-image {
+        max-width: 200px;
+        max-height: 240px;
+    }
+    
+    /* Modal */
+    .cert-modal-content {
+        width: 95%;
+        max-width: 400px;
+        margin: 15% auto;
+        border-radius: var(--border-radius-md);
+    }
+    
+    .cert-modal-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .cert-modal-header h2 {
+        font-size: var(--font-size-sm);
+    }
+    
+    .cert-modal-close {
+        top: var(--spacing-xs);
+        right: var(--spacing-sm);
+        font-size: var(--font-size-xl);
+    }
+    
+    .cert-modal-body {
+        padding: var(--spacing-sm);
+    }
+    
+    #certImage {
+        max-height: 250px;
+        max-width: 98%;
+        padding: var(--spacing-xs);
+    }
+    
+    .cert-info {
+        margin-top: var(--spacing-xs);
+        padding-top: var(--spacing-xs);
+    }
+    
+    #certIssuer, #certDate {
+        font-size: var(--font-size-xs);
+    }
+    
+    /* Carrusel */
+    .carousel-cert-card {
+        max-width: 240px;
+        padding: 10px 0;
+    }
+    
+    .carousel-item .cert-card {
+        min-height: 220px;
+        padding: var(--spacing-md) !important;
+    }
+    
+    .carousel-item .cert-card h1 {
+        font-size: var(--font-size-md);
+    }
+    
+    .carousel-item .cert-card h3 {
+        font-size: var(--font-size-sm);
+    }
+    
+    .carousel-item .cert-card p,
+    .carousel-item .cert-card span {
+        font-size: var(--font-size-xs);
+    }
+    
+    /* Paginación */
+    .pagination-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+        gap: var(--spacing-xs);
+    }
+    
+    .pagination-btn i {
+        font-size: var(--font-size-xs);
+    }
+    
+    .page-info {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+    .header {
+        padding: var(--spacing-xs) 4%;
+    }
+    
+    .logo {
+        font-size: var(--font-size-lg);
+    }
+    
+    .home, .homee {
+        padding: 80px 3% 20px;
+    }
+    
+    .in-flex, .in-flexx {
+        padding: var(--spacing-sm);
+    }
+    
+    .cert-preview {
+        max-width: 180px;
+    }
+    
+    .preview-image {
+        max-width: 160px;
+        max-height: 200px;
+    }
+    
+    .carousel-cert-card {
+        max-width: 200px;
+    }
+    
+    .carousel-item .cert-card {
+        min-height: 180px;
+        padding: var(--spacing-sm) !important;
+    }
+    
+    .carousel-item .cert-card h1 {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* ========================================
+   PREFERENCIAS DE ACCESIBILIDAD
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Estilos para navegadores que prefieren dark mode */
+    /* Se aplica automáticamente si no hay data-theme */
+}
+
+/* ========================================
+   IMPRESIÓN
+   ======================================== */
+@media print {
+    .header {
+        position: static;
+        box-shadow: none;
+        background: white !important;
+    }
+    
+    .theme-toggle,
+    .nav-toggle,
+    .pagination-container,
+    .carousel-control-prev,
+    .carousel-control-next,
+    .carousel-indicators {
+        display: none !important;
+    }
+    
+    .cert-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .cert-preview {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        background: white !important;
+        max-width: 100% !important;
+    }
 }
