@@ -4,16 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Geanluis Lorenzo | About</title>
-    
 
     <link rel="stylesheet" href="Css/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="icon" href="https://img.icons8.com/material/24/under-computer--v1.png" type="image/x-icon" />
-    
-    <!-- Font Awesome (para iconos de paginación) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    
+
     <style>
         /* ========================================
            ESTILOS DEL BOTÓN DE IDIOMA
@@ -34,34 +31,19 @@
             transition: all 0.3s ease;
             margin-left: 0.5rem;
         }
-        
         .lang-toggle:hover {
             transform: scale(1.05);
             background-color: var(--accent-primary, #0a66c2);
             color: #fff;
         }
-        
         [data-theme="dark"] .lang-toggle {
             background-color: var(--bg-secondary, #2d2d2d);
             color: var(--text-primary, #eee);
         }
-        
         [data-theme="dark"] .lang-toggle:hover {
             background-color: var(--accent-primary, #0a66c2);
         }
-        
-        /* ========================================
-           ESTILOS DEL MODAL
-           ======================================== */
-        .cert-info p {
-            margin: 0.5rem 0;
-        }
-        
-        .cert-label {
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }
-        
+
         /* ========================================
            RESPONSIVE - BOTÓN DE IDIOMA
            ======================================== */
@@ -80,7 +62,7 @@
     <!-- ========== HEADER ========== -->
     <header class="header">
         <a href="https://geanluisgl.github.io/gy/" class="logo" data-i18n="logo">Portfolio</a>
-        
+
         <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="https://geanluisgl.github.io/gy/" data-i18n="nav_home">Home</a></li>
@@ -89,13 +71,13 @@
                 <li><a href="https://geanluisgl.github.io/project/" data-i18n="nav_projects">Projects</a></li>
                 <li><a href="https://geanluisgl.github.io/contact/" data-i18n="nav_contact">Contact</a></li>
             </ul>
-            
+
             <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
                 <i class="bx bx-moon"></i>
             </button>
-            
+
             <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma">ES</button>
-            
+
             <button class="nav-toggle" aria-label="Abrir menú">
                 <i class="bx bx-menu" style="font-size: 2rem;"></i>
             </button>
@@ -114,15 +96,12 @@
             <p data-i18n="exp5_desc">Being experienced right now.</p>
         </div>
 
-
-        <!-- Experiencia 1 -->
         <div class="in-flex">
             <h1 data-i18n="exp1_title">Agent Discovery</h1>
             <h3 data-i18n="exp1_subtitle">Media Monitors | 2025-2026</h3>
             <p data-i18n="exp1_desc">Evaluated ad campaign performance through data analysis. Used tools like Google Analytics, Google researches and library documentation. Delivered actionable reports to improve targeting. Collaborated with marketing teams to refine messaging and audiences. Skilled in Excel, Data Studio, and strategic thinking.</p>
         </div>
 
-        <!-- Experiencia 2 -->
         <div class="in-flex">
             <h1 data-i18n="exp2_title">Freelance Developer</h1>
             <h3 data-i18n="exp2_subtitle">2022-Present</h3>
@@ -131,14 +110,12 @@
             <p style="margin-top: 0.5rem; font-style: italic;" data-i18n="exp2_note">(You can see it in more detail in the projects section.)</p>
         </div>
 
-        <!-- Experiencia 3 -->
         <div class="in-flex">
             <h1 data-i18n="exp3_title">Home Helper, Staff Trainer</h1>
             <h3 data-i18n="exp3_subtitle">Sociedad Dominicana de los Testigos de Jehová | 2023-2025</h3>
             <p data-i18n="exp3_desc">Facility Supervision: Supervises facility conditions to maintain cleanliness, organization, and proper maintenance in common and residential areas, prioritizing residents' well-being. Enforces safety measures to protect employees, customers, and company assets. Includes training new employees, providing guidance on procedures, policies, and safety standards while supporting the team in daily tasks.</p>
         </div>
 
-        <!-- Experiencia 4 -->
         <div class="in-flex">
             <h1 data-i18n="exp4_title">Technical Support</h1>
             <h3 data-i18n="exp4_subtitle">Ferreteria Mirasol | 2017-2023</h3>
@@ -173,22 +150,31 @@
     </section>
 
     <!-- ========== CERTIFICACIONES ========== -->
-    <section class="homee">
+    <section class="certifications-section">
         <div class="title">
             <h1 data-i18n="cert_title">Certifications</h1>
         </div>
 
-        <!-- Contenedor de certificados (dinámico) -->
+        <!-- Filtros por categoría -->
+        <div class="cert-filters">
+            <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+            <button class="filter-btn" data-filter="linkedin" data-i18n="filter_linkedin">LinkedIn</button>
+            <button class="filter-btn" data-filter="neoris" data-i18n="filter_neoris">Neoris</button>
+            <button class="filter-btn" data-filter="capacitate" data-i18n="filter_capacitate">Capacítate</button>
+            <button class="filter-btn" data-filter="other" data-i18n="filter_other">Other</button>
+        </div>
+
+        <!-- Grid de certificados -->
         <div id="certificates-container" class="certificates-grid"></div>
 
-        <!-- Controles de paginación -->
+        <!-- Paginación -->
         <div class="pagination-container">
             <button id="prev-page" class="pagination-btn" onclick="changePage(-1)">
-                <i class="fas fa-chevron-left"></i> <span data-i18n="pagination_prev">Anterior</span>
+                <i class="fas fa-chevron-left"></i> <span data-i18n="pagination_prev">Previous</span>
             </button>
-            <span id="page-info" class="page-info">Página 1 de 1</span>
+            <!-- <span id="page-info" class="page-info">Page 1 of 1</span> -->
             <button id="next-page" class="pagination-btn" onclick="changePage(1)">
-                <span data-i18n="pagination_next">Siguiente</span> <i class="fas fa-chevron-right"></i>
+                <span data-i18n="pagination_next">Next</span> <i class="fas fa-chevron-right"></i>
             </button>
         </div>
     </section>
@@ -196,26 +182,23 @@
     <!-- ========== MODAL CERTIFICADOS ========== -->
     <div id="certModal" class="cert-modal">
         <div class="cert-modal-content">
-            <span class="cert-modal-close">&times;</span>
-            
-            <div class="cert-modal-header">
-                <h2 id="modalTitle">Certificado</h2>
+            <button class="cert-modal-close" onclick="closeModal()">&times;</button>
+
+            <div class="cert-modal-image">
+                <img id="certImage" src="" alt="Certificate" />
             </div>
-            
-            <div class="cert-modal-body">
-                <div class="cert-image-container">
-                    <img id="certImage" src="" alt="Certificado completo" />
-                </div>
-                
-                <div class="cert-info">
-                    <p>
-                        <span class="cert-label" data-i18n="modal_issuer_label">Issuer:</span>
-                        <span id="certIssuer"></span>
-                    </p>
-                    <p>
-                        <span class="cert-label" data-i18n="modal_date_label">Date:</span>
-                        <span id="certDate"></span>
-                    </p>
+
+            <div class="cert-modal-info">
+                <h2 id="modalTitle"></h2>
+                <div class="cert-details">
+                    <div class="detail-item">
+                        <span class="detail-label" data-i18n="modal_issuer_label">Issuer:</span>
+                        <span class="detail-value" id="certIssuer"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label" data-i18n="modal_date_label">Date:</span>
+                        <span class="detail-value" id="certDate"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -223,377 +206,456 @@
 
     <!-- ========== SCRIPTS ========== -->
     <script>
-        // ========================================
-        // 1. DATOS DE CERTIFICADOS
-        // ========================================
-        const certificates = [
-            { id: 1, dataCert: "ProjectMag", image: "Img/epamNeoris/Project_Manag.png", issuer: "LinkedIn", date: "2026", title: "Project Management Skills for Leaders", issuerName: "LinkedIn", year: "2026", hasImage: true },
-            { id: 2, dataCert: "Agile_Leader", image: "Img/epamNeoris/AgileLeader.png", issuer: "LinkedIn", date: "2026", title: "Agile Leader: Mastering the Mindset, Skills, and Strategies to Succeed", issuerName: "LinkedIn", year: "2026", hasImage: true },
-            { id: 3, dataCert: "SGSPI", image: "Img/epamNeoris/SGSPI.png", issuer: "Neoris Global Campus", date: "2026", title: "Sistema de Gestión de Seguridad de Seguridad y Privacidad de la Información (SGSPI) V1.0", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 4, dataCert: "SeguridadInformacion", image: "Img/epamNeoris/SeguridadInformacion.png", issuer: "Neoris Global Campus", date: "2026", title: "Concientización General en Seguridad de la Información v5.0", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 5, dataCert: "PrivacidadDatos", image: "Img/epamNeoris/SecureCoding.png", issuer: "Neoris Global Campus", date: "2026", title: "Secure Coding Practices", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 6, dataCert: "PrivacidadDatos", image: "Img/epamNeoris/ProcesoDesarrolloSeguro.png", issuer: "Neoris Global Campus", date: "2026", title: "Proceso de Desarrollo Seguro", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 7, dataCert: "PrivacidadDatos", image: "Img/epamNeoris/ProcesoDesarrolloSeguro.png", issuer: "Neoris Global Campus", date: "2026", title: "Proceso de Desarrollo Seguro", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 8, dataCert: "PrivacidadDatos", image: "Img/epamNeoris/Privacidad_Datos_PErsonales.png", issuer: "Neoris Global Campus", date: "2026", title: "Privacidad de Datos Personales", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 9, dataCert: "PCI_PaymentCard", image: "Img/epamNeoris/PCI_PaymentCard.png", issuer: "Neoris Global Campus", date: "2026", title: "Payment Card [...] Data Security", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 10, dataCert: "OWASP", image: "Img/epamNeoris/OWASP.png", issuer: "Neoris Global Campus", date: "2026", title: "OWASP Top 10", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 11, dataCert: "MetodologiaDesarrollo", image: "Img/epamNeoris/MetodologiaDesarrollo.png", issuer: "Neoris Global Campus", date: "2026", title: "Metodología de Desarrollo de Proyecto de Software", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 12, dataCert: "Proteccion_Datos", image: "Img/epamNeoris/GDPR_Proteccion_datos.png", issuer: "Neoris Global Campus", date: "2026", title: "Reglamento General de Protección de Datos", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 13, dataCert: "Analisis_Dinamico", image: "Img/epamNeoris/AnalisisDinamico.png", issuer: "Neoris Global Campus", date: "2026", title: "Análisis Dinámico", issuerName: "Neoris Global Campus", year: "2026", hasImage: true },
-            { id: 14, dataCert: "SQL Bootcamp", image: "", issuer: "Udemy", date: "2026", title: "SQL Bootcamp (30 Hours): Go from Zero to Hero", issuerName: "Udemy", year: "2026", hasImage: false, isOnProcess: true },
-            { id: 15, dataCert: "finder", image: "Img/finder.jpeg", issuer: "Capacítate el Empleo", date: "2025", title: "Finder", issuerName: "Capacítate el Empleo", year: "2025", hasImage: true },
-            { id: 16, dataCert: "computer_repair", image: "Img/computer_repair.png", issuer: "Capacítate el Empleo", date: "2025", title: "Computer equipment installation and repair technician", issuerName: "Capacítate el Empleo", year: "2025", hasImage: true },
-            { id: 17, dataCert: "office_automation", image: "Img/office_automation.png", issuer: "Capacítate el Empleo", date: "2025", title: "Computer Technician (Office Automation)", issuerName: "Capacítate el Empleo", year: "2025", hasImage: true },
-            { id: 18, dataCert: "it_essentials", image: "Img/IT_Essentials.png", issuer: "Cisco Networking Academy", date: "2021", title: "IT Essentials: PC Hardware and Software", issuerName: "Cisco Networking Academy", year: "2021", hasImage: true },
-            { id: 19, dataCert: "control_version", image: "Img/control_version.png", issuer: "Capacítate el Empleo", date: "2020", title: "Control Version", issuerName: "Capacítate el Empleo", year: "2020", hasImage: true }
-        ];
+// ============================================================
+// 1. DATOS DE CERTIFICADOS
+// ============================================================
+const CERTIFICATES_DATA = [
+    { id: 1, titleKey: "cert1_title", issuerKey: "cert1_issuer", issuer: "LinkedIn", date: "2026", image: "Img/epamNeoris/PMTech.png", category: "linkedin", hasImage: true },
+    { id: 2, titleKey: "cert2_title", issuerKey: "cert2_issuer", issuer: "LinkedIn", date: "2026", image: "Img/epamNeoris/SQLFinance.png", category: "linkedin", hasImage: true },
+    { id: 3, titleKey: "cert3_title", issuerKey: "cert3_issuer", issuer: "LinkedIn", date: "2026", image: "Img/epamNeoris/Project_Manag.png", category: "linkedin", hasImage: true },
+    { id: 4, titleKey: "cert4_title", issuerKey: "cert4_issuer", issuer: "LinkedIn", date: "2026", image: "Img/epamNeoris/AgileLeader.png", category: "linkedin", hasImage: true },
+    { id: 5, titleKey: "cert5_title", issuerKey: "cert5_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/SGSPI.png", category: "neoris", hasImage: true },
+    { id: 6, titleKey: "cert6_title", issuerKey: "cert6_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/SeguridadInformacion.png", category: "neoris", hasImage: true },
+    { id: 7, titleKey: "cert7_title", issuerKey: "cert7_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/SecureCoding.png", category: "neoris", hasImage: true },
+    { id: 8, titleKey: "cert8_title", issuerKey: "cert8_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/ProcesoDesarrolloSeguro.png", category: "neoris", hasImage: true },
+    { id: 9, titleKey: "cert9_title", issuerKey: "cert9_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/Privacidad_Datos_PErsonales.png", category: "neoris", hasImage: true },
+    { id: 10, titleKey: "cert10_title", issuerKey: "cert10_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/PCI_PaymentCard.png", category: "neoris", hasImage: true },
+    { id: 11, titleKey: "cert11_title", issuerKey: "cert11_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/OWASP.png", category: "neoris", hasImage: true },
+    { id: 12, titleKey: "cert12_title", issuerKey: "cert12_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/MetodologiaDesarrollo.png", category: "neoris", hasImage: true },
+    { id: 13, titleKey: "cert13_title", issuerKey: "cert13_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/GDPR_Proteccion_datos.png", category: "neoris", hasImage: true },
+    { id: 14, titleKey: "cert14_title", issuerKey: "cert14_issuer", issuer: "Neoris Global Campus", date: "2026", image: "Img/epamNeoris/AnalisisDinamico.png", category: "neoris", hasImage: true },
+    { id: 15, titleKey: "cert15_title", issuerKey: "cert15_issuer", issuer: "Udemy", date: "2026", image: "", category: "other", hasImage: false, isOnProcess: true },
+    { id: 16, titleKey: "cert16_title", issuerKey: "cert16_issuer", issuer: "Capacítate el Empleo", date: "2025", image: "Img/finder.jpeg", category: "capacitate", hasImage: true },
+    { id: 17, titleKey: "cert17_title", issuerKey: "cert17_issuer", issuer: "Capacítate el Empleo", date: "2025", image: "Img/computer_repair.png", category: "capacitate", hasImage: true },
+    { id: 18, titleKey: "cert18_title", issuerKey: "cert18_issuer", issuer: "Capacítate el Empleo", date: "2025", image: "Img/office_automation.png", category: "capacitate", hasImage: true },
+    { id: 19, titleKey: "cert19_title", issuerKey: "cert19_issuer", issuer: "Cisco Networking Academy", date: "2021", image: "Img/IT_Essentials.png", category: "other", hasImage: true },
+    { id: 20, titleKey: "cert20_title", issuerKey: "cert20_issuer", issuer: "Capacítate el Empleo", date: "2020", image: "Img/control_version.png", category: "capacitate", hasImage: true }
+];
 
-        // ========================================
-        // 2. PAGINACIÓN
-        // ========================================
-        const itemsPerPage = 5;
-        let currentPage = 1;
-        const totalPages = Math.ceil(certificates.length / itemsPerPage);
+// ============================================================
+// 2. TRADUCCIONES COMPLETAS
+// ============================================================
+const TRANSLATIONS = {
+    en: {
+        logo: "Portfolio",
+        nav_home: "Home",
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_contact: "Contact",
+        
+        // EXPERIENCIA
+        exp_title: "Experience",
+        exp1_title: "Agent Discovery",
+        exp1_subtitle: "Media Monitors | 2025-2026",
+        exp1_desc: "Evaluated ad campaign performance through data analysis. Used tools like Google Analytics, Google researches and library documentation. Delivered actionable reports to improve targeting. Collaborated with marketing teams to refine messaging and audiences. Skilled in Excel, Data Studio, and strategic thinking.",
+        exp2_title: "Freelance Developer",
+        exp2_subtitle: "2022-Present",
+        exp2_desc1: "Engages in various projects, gaining experience in multiple technologies and development approaches. Demonstrates adaptability to diverse requirements and technologies, delivering efficient and functional solutions tailored to different user needs.",
+        exp2_desc2: "Develops scalable and well-structured applications using architectures such as MVC and Onion in .NET, focusing on separation of concerns and best development practices.",
+        exp2_note: "(You can see it in more detail in the projects section.)",
+        exp3_title: "Home Helper, Staff Trainer",
+        exp3_subtitle: "Sociedad Dominicana de los Testigos de Jehová | 2023-2025",
+        exp3_desc: "Facility Supervision: Supervises facility conditions to maintain cleanliness, organization, and proper maintenance in common and residential areas, prioritizing residents' well-being. Enforces safety measures to protect employees, customers, and company assets. Includes training new employees, providing guidance on procedures, policies, and safety standards while supporting the team in daily tasks.",
+        exp4_title: "Technical Support",
+        exp4_subtitle: "Ferreteria Mirasol | 2017-2023",
+        exp4_desc1: "Technical Troubleshooting and Data Management, handles software and hardware issues to ensure seamless and efficient operations, diagnoses system failures, identifies root causes, and implements effective solutions to maintain system integrity and functionality.",
+        exp4_desc2: "Record purchases and sales, manually or through automated systems, ensuring data accuracy and timely updates. This is critical to prevent inventory or financial discrepancies and support effective decision-making.",
+        exp5_title: "Project Leader - Software Developer",
+        exp5_subtitle: "CGL - Banco Popular dominicano | 2026",
+        exp5_desc: "Being experienced right now.",
+        
+        // EDUCACIÓN
+        edu_title: "Education",
+        edu1_title: "Software Developer",
+        edu1_institution: "Instituto Tecnológico de las Américas (ITLA)",
+        edu1_date: "2021-Present",
+        edu2_title: "Mathematics & Technology",
+        edu2_institution: "Centro Educativo en Artes Club Mauricio Baez",
+        edu2_date: "2019-2020",
+        edu3_title: "Arts: Cinematography and Photography",
+        edu3_institution: "Centro Educativo en Artes Club Mauricio Baez",
+        edu3_date: "2016-2019",
+        
+        // CERTIFICACIONES
+        cert_title: "Certifications",
+        filter_all: "All",
+        filter_linkedin: "LinkedIn",
+        filter_neoris: "Neoris",
+        filter_capacitate: "Capacítate",
+        filter_other: "Other",
+        pagination_prev: "Previous",
+        pagination_next: "Next",
+        modal_issuer_label: "Issuer:",
+        modal_date_label: "Date:",
+        
+        // Títulos de certificados
+        cert1_title: "Project Management: Technical Projects",
+        cert1_issuer: "LinkedIn",
+        cert2_title: "SQL For Professional Finance",
+        cert2_issuer: "LinkedIn",
+        cert3_title: "Project Management Skills for Leaders",
+        cert3_issuer: "LinkedIn",
+        cert4_title: "Agile Leader: Mastering the Mindset, Skills, and Strategies to Succeed",
+        cert4_issuer: "LinkedIn",
+        cert5_title: "Information Security and Privacy Management System (SGSPI) V1.0",
+        cert5_issuer: "Neoris Global Campus",
+        cert6_title: "General Awareness in Information Security v5.0",
+        cert6_issuer: "Neoris Global Campus",
+        cert7_title: "Secure Coding Practices",
+        cert7_issuer: "Neoris Global Campus",
+        cert8_title: "Secure Development Process",
+        cert8_issuer: "Neoris Global Campus",
+        cert9_title: "Personal Data Privacy",
+        cert9_issuer: "Neoris Global Campus",
+        cert10_title: "Payment Card Industry Data Security Standard (PCI DSS)",
+        cert10_issuer: "Neoris Global Campus",
+        cert11_title: "OWASP Top 10",
+        cert11_issuer: "Neoris Global Campus",
+        cert12_title: "Software Project Development Methodology",
+        cert12_issuer: "Neoris Global Campus",
+        cert13_title: "General Data Protection Regulation (GDPR)",
+        cert13_issuer: "Neoris Global Campus",
+        cert14_title: "Dynamic Analysis",
+        cert14_issuer: "Neoris Global Campus",
+        cert15_title: "SQL Bootcamp (30 Hours): Go from Zero to Hero",
+        cert15_issuer: "Udemy",
+        cert16_title: "Finder",
+        cert16_issuer: "Capacítate el Empleo",
+        cert17_title: "Computer Equipment Installation and Repair Technician",
+        cert17_issuer: "Capacítate el Empleo",
+        cert18_title: "Computer Technician (Office Automation)",
+        cert18_issuer: "Capacítate el Empleo",
+        cert19_title: "IT Essentials: PC Hardware and Software",
+        cert19_issuer: "Cisco Networking Academy",
+        cert20_title: "Control Version",
+        cert20_issuer: "Capacítate el Empleo",
+    },
+    es: {
+        logo: "Portafolio",
+        nav_home: "Inicio",
+        nav_about: "Acerca de",
+        nav_skills: "Habilidades",
+        nav_projects: "Proyectos",
+        nav_contact: "Contacto",
+        
+        // EXPERIENCIA
+        exp_title: "Experiencia",
+        exp1_title: "Agent Discovery",
+        exp1_subtitle: "Media Monitors | 2025-2026",
+        exp1_desc: "Evaluación del rendimiento de campañas publicitarias mediante análisis de datos. Uso de herramientas como Google Analytics, investigaciones de Google y documentación de bibliotecas. Entrega de informes prácticos para mejorar la segmentación. Colaboración con equipos de marketing para refinar mensajes y audiencias. Habilidades en Excel, Data Studio y pensamiento estratégico.",
+        exp2_title: "Desarrollador Freelance",
+        exp2_subtitle: "2022-Presente",
+        exp2_desc1: "Participa en diversos proyectos, adquiriendo experiencia en múltiples tecnologías y enfoques de desarrollo. Demuestra adaptabilidad a distintos requisitos y tecnologías, entregando soluciones eficientes y funcionales adaptadas a las necesidades del usuario.",
+        exp2_desc2: "Desarrolla aplicaciones escalables y bien estructuradas usando arquitecturas como MVC y Onion en .NET, enfocándose en la separación de preocupaciones y buenas prácticas de desarrollo.",
+        exp2_note: "(Puedes verlo con más detalle en la sección de proyectos.)",
+        exp3_title: "Ayudante del Hogar, Capacitador de Personal",
+        exp3_subtitle: "Sociedad Dominicana de los Testigos de Jehová | 2023-2025",
+        exp3_desc: "Supervisión de instalaciones: supervisa las condiciones de las instalaciones para mantener limpieza, organización y mantenimiento adecuado en áreas comunes y residenciales, priorizando el bienestar de los residentes. Aplica medidas de seguridad para proteger empleados, clientes y activos de la empresa. Incluye la formación de nuevos empleados, proporcionando orientación sobre procedimientos, políticas y estándares de seguridad, apoyando al equipo en tareas diarias.",
+        exp4_title: "Soporte Técnico",
+        exp4_subtitle: "Ferretería Mirasol | 2017-2023",
+        exp4_desc1: "Resolución de problemas técnicos y gestión de datos, maneja problemas de software y hardware para garantizar operaciones fluidas y eficientes. Diagnostica fallos del sistema, identifica causas raíz e implementa soluciones efectivas para mantener la integridad y funcionalidad del sistema.",
+        exp4_desc2: "Registro de compras y ventas, manualmente o mediante sistemas automatizados, asegurando la precisión de los datos y actualizaciones oportunas. Esto es crítico para prevenir discrepancias de inventario o financieras y apoyar la toma de decisiones efectiva.",
+        exp5_title: "Líder de Proyecto - Desarrollador de Software",
+        exp5_subtitle: "CGL - Banco Popular dominicano | 2026",
+        exp5_desc: "Actualmente en desarrollo.",
+        
+        // EDUCACIÓN
+        edu_title: "Educación",
+        edu1_title: "Desarrollador de Software",
+        edu1_institution: "Instituto Tecnológico de las Américas (ITLA)",
+        edu1_date: "2021-Presente",
+        edu2_title: "Matemáticas y Tecnología",
+        edu2_institution: "Centro Educativo en Artes Club Mauricio Baez",
+        edu2_date: "2019-2020",
+        edu3_title: "Artes: Cinematografía y Fotografía",
+        edu3_institution: "Centro Educativo en Artes Club Mauricio Baez",
+        edu3_date: "2016-2019",
+        
+        // CERTIFICACIONES
+        cert_title: "Certificaciones",
+        filter_all: "Todos",
+        filter_linkedin: "LinkedIn",
+        filter_neoris: "Neoris",
+        filter_capacitate: "Capacítate",
+        filter_other: "Otros",
+        pagination_prev: "Anterior",
+        pagination_next: "Siguiente",
+        modal_issuer_label: "Emisor:",
+        modal_date_label: "Fecha:",
+        
+        // Títulos de certificados
+        cert1_title: "Gestión de Proyectos: Proyectos Técnicos",
+        cert1_issuer: "LinkedIn",
+        cert2_title: "SQL Para Finanzas Profesionales",
+        cert2_issuer: "LinkedIn",
+        cert3_title: "Habilidades de Gestión de Proyectos para Líderes",
+        cert3_issuer: "LinkedIn",
+        cert4_title: "Líder Ágil: Dominando la Mentalidad, Habilidades y Estrategias para Tener Éxito",
+        cert4_issuer: "LinkedIn",
+        cert5_title: "Sistema de Gestión de Seguridad de la Información y Privacidad (SGSPI) V1.0",
+        cert5_issuer: "Neoris Global Campus",
+        cert6_title: "Concientización General en Seguridad de la Información v5.0",
+        cert6_issuer: "Neoris Global Campus",
+        cert7_title: "Prácticas de Codificación Segura",
+        cert7_issuer: "Neoris Global Campus",
+        cert8_title: "Proceso de Desarrollo Seguro",
+        cert8_issuer: "Neoris Global Campus",
+        cert9_title: "Privacidad de Datos Personales",
+        cert9_issuer: "Neoris Global Campus",
+        cert10_title: "Estándar de Seguridad de Datos de la Industria de Tarjetas de Pago (PCI DSS)",
+        cert10_issuer: "Neoris Global Campus",
+        cert11_title: "OWASP Top 10",
+        cert11_issuer: "Neoris Global Campus",
+        cert12_title: "Metodología de Desarrollo de Proyecto de Software",
+        cert12_issuer: "Neoris Global Campus",
+        cert13_title: "Reglamento General de Protección de Datos (GDPR)",
+        cert13_issuer: "Neoris Global Campus",
+        cert14_title: "Análisis Dinámico",
+        cert14_issuer: "Neoris Global Campus",
+        cert15_title: "SQL Bootcamp (30 Horas): De Cero a Héroe",
+        cert15_issuer: "Udemy",
+        cert16_title: "Finder",
+        cert16_issuer: "Capacítate el Empleo",
+        cert17_title: "Técnico en Instalación y Reparación de Equipos de Cómputo",
+        cert17_issuer: "Capacítate el Empleo",
+        cert18_title: "Técnico en Computación (Ofimática)",
+        cert18_issuer: "Capacítate el Empleo",
+        cert19_title: "IT Essentials: Hardware y Software de PC",
+        cert19_issuer: "Cisco Networking Academy",
+        cert20_title: "Control de Versiones",
+        cert20_issuer: "Capacítate el Empleo",
+    }
+};
 
-        function renderCertificates() {
-            const container = document.getElementById('certificates-container');
-            container.innerHTML = '';
+// ============================================================
+// 3. ESTADO DE LA APLICACIÓN
+// ============================================================
+const APP_STATE = {
+    currentLang: 'en',
+    currentPage: 1,
+    itemsPerPage: 6,
+    currentFilter: 'all'
+};
 
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = Math.min(startIndex + itemsPerPage, certificates.length);
-            const pageItems = certificates.slice(startIndex, endIndex);
+// ============================================================
+// 4. FUNCIONES DE FILTRADO
+// ============================================================
+function getFilteredCertificates() {
+    if (APP_STATE.currentFilter === 'all') {
+        return CERTIFICATES_DATA;
+    }
+    return CERTIFICATES_DATA.filter(cert => cert.category === APP_STATE.currentFilter);
+}
 
-            pageItems.forEach(cert => {
-                const card = document.createElement('div');
-                card.className = 'in-flexx cert-card';
-                card.setAttribute('data-cert', cert.dataCert);
-                card.setAttribute('data-image', cert.image);
-                card.setAttribute('data-issuer', cert.issuer);
-                card.setAttribute('data-date', cert.date);
+function applyFilter(filter) {
+    APP_STATE.currentFilter = filter;
+    APP_STATE.currentPage = 1;
+    
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`[data-filter="${filter}"]`).classList.add('active');
+    
+    renderCertificates();
+}
 
-                let imageHTML = cert.hasImage && cert.image
-                    ? `<img class="preview-image" src="${cert.image}" alt="Preview del certificado">`
-                    : `<div class="no-image-placeholder">No Image Available</div>`;
+// ============================================================
+// 5. FUNCIONES DE CERTIFICADOS Y PAGINACIÓN
+// ============================================================
+function getTotalPages() {
+    const filtered = getFilteredCertificates();
+    return Math.ceil(filtered.length / APP_STATE.itemsPerPage);
+}
 
-                let statusHTML = cert.isOnProcess
-                    ? `<span data-i18n="cert0_date" class="tag tag-warning">On Process</span>`
-                    : `<p>${cert.year}</p>`;
+function getCurrentPageItems() {
+    const filtered = getFilteredCertificates();
+    const start = (APP_STATE.currentPage - 1) * APP_STATE.itemsPerPage;
+    const end = Math.min(start + APP_STATE.itemsPerPage, filtered.length);
+    return filtered.slice(start, end);
+}
 
-                card.innerHTML = `
-                    <h1 data-i18n="cert${cert.id}_title">${cert.title}</h1>
-                    <h3 data-i18n="cert${cert.id}_issuer">${cert.issuerName}</h3>
-                    ${statusHTML}
-                    <div class="cert-preview">${imageHTML}</div>
-                `;
+function getTranslation(key) {
+    return TRANSLATIONS[APP_STATE.currentLang][key] || key;
+}
 
-                container.appendChild(card);
-            });
+function renderCertificates() {
+    const container = document.getElementById('certificates-container');
+    container.innerHTML = '';
+    const pageItems = getCurrentPageItems();
 
-            document.getElementById('page-info').textContent = `Página ${currentPage} de ${totalPages}`;
-            document.getElementById('prev-page').disabled = currentPage === 1;
-            document.getElementById('next-page').disabled = currentPage === totalPages;
+    pageItems.forEach(cert => {
+        const card = document.createElement('div');
+        card.className = 'cert-card';
+        card.style.cursor = cert.hasImage && cert.image ? 'pointer' : 'default';
+
+        const badgeClass = cert.isOnProcess ? 'badge-process' : 'badge-completed';
+        const badgeText = cert.isOnProcess ? 'On Process' : cert.date;
+        
+        const title = getTranslation(cert.titleKey);
+        const issuer = getTranslation(cert.issuerKey);
+
+        card.innerHTML = `
+            <div class="cert-header">
+                <span class="cert-badge ${badgeClass}">${badgeText}</span>
+            </div>
+            <div class="cert-body">
+                <h3>${title}</h3>
+                <p class="cert-issuer">${issuer}</p>
+            </div>
+            <div class="cert-footer">
+                ${cert.hasImage && cert.image ? '<i class="fas fa-image"></i> View' : '<i class="fas fa-lock"></i> No Image'}
+            </div>
+        `;
+
+        if (cert.hasImage && cert.image) {
+            card.addEventListener('click', () => openCertificateModal(cert, title));
         }
 
-        function changePage(direction) {
-            const newPage = currentPage + direction;
-            if (newPage >= 1 && newPage <= totalPages) {
-                currentPage = newPage;
-                renderCertificates();
-                document.querySelector('.homee').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
+        container.appendChild(card);
+    });
 
-        // ========================================
-        // 3. MODAL
-        // ========================================
-        const modal = document.getElementById('certModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const certImage = document.getElementById('certImage');
-        const certIssuerSpan = document.getElementById('certIssuer');
-        const certDateSpan = document.getElementById('certDate');
-        const closeBtn = document.querySelector('.cert-modal-close');
+    updatePagination();
+}
 
-        function openCertificateModal(card) {
-            const title = card.querySelector('h1')?.innerText || '';
-            const image = card.getAttribute('data-image');
-            const issuer = card.getAttribute('data-issuer');
-            const date = card.getAttribute('data-date');
+function updatePagination() {
+    const totalPages = getTotalPages();
+    document.getElementById('page-info').textContent = `${getTranslation('pagination_label')} ${APP_STATE.currentPage} ${getTranslation('pagination_of')} ${totalPages}`;
+    document.getElementById('prev-page').disabled = APP_STATE.currentPage === 1;
+    document.getElementById('next-page').disabled = APP_STATE.currentPage === totalPages;
+}
 
-            if (image) {
-                modalTitle.textContent = title;
-                certImage.src = image;
-                certImage.alt = `Certificado: ${title}`;
-                certIssuerSpan.textContent = issuer;
-                certDateSpan.textContent = date;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
+function changePage(direction) {
+    const totalPages = getTotalPages();
+    const newPage = APP_STATE.currentPage + direction;
+    if (newPage >= 1 && newPage <= totalPages) {
+        APP_STATE.currentPage = newPage;
+        renderCertificates();
+        document.querySelector('.certifications-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
 
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+// ============================================================
+// 6. FUNCIONES DEL MODAL
+// ============================================================
+function openCertificateModal(cert, title) {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('certImage').src = cert.image;
+    document.getElementById('certImage').alt = title;
+    document.getElementById('certIssuer').textContent = getTranslation(cert.issuerKey);
+    document.getElementById('certDate').textContent = cert.date;
+    document.getElementById('certModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
 
-        closeBtn?.addEventListener('click', closeModal);
-        window.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); });
+function closeModal() {
+    document.getElementById('certModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
 
-        // Delegación de eventos para certificados (dinámicos)
-        document.addEventListener('click', e => {
-            const card = e.target.closest('.cert-card');
-            if (card) {
-                e.stopPropagation();
-                openCertificateModal(card);
+// ========== FUNCIONES DE TEMA ==========
+function updateThemeIcon(theme) {
+    const icon = document.querySelector('#themeToggle i');
+    if (icon) icon.className = theme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+}
+
+function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+// ========== FUNCIONES DE IDIOMA ==========
+function applyLanguage(lang) {
+    if (!TRANSLATIONS[lang]) return;
+    APP_STATE.currentLang = lang;
+
+    requestAnimationFrame(() => {
+        // Actualizar elementos con data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (TRANSLATIONS[lang][key]) {
+                el.textContent = TRANSLATIONS[lang][key];
             }
         });
 
-        // ========================================
-        // 4. TRADUCCIONES
-        // ========================================
-        const translations = {
-            en: {
-                title: "Geanluis Lorenzo | About",
-                logo: "Portfolio",
-                nav_home: "Home",
-                nav_about: "About",
-                nav_skills: "Skills",
-                nav_projects: "Projects",
-                nav_contact: "Contact",
-                exp_title: "Experience",
-                exp1_title: "Agent Discovery",
-                exp1_subtitle: "Media Monitors | 2025-Present",
-                exp1_desc: "Evaluated ad campaign performance through data analysis. Used tools like Google Analytics, Google researches and library documentation. Delivered actionable reports to improve targeting. Collaborated with marketing teams to refine messaging and audiences. Skilled in Excel, Data Studio, and strategic thinking.",
-                exp2_title: "Freelance Developer",
-                exp2_subtitle: "2022-Present",
-                exp2_desc1: "Engages in various projects, gaining experience in multiple technologies and development approaches. Demonstrates adaptability to diverse requirements and technologies, delivering efficient and functional solutions tailored to different user needs.",
-                exp2_desc2: "Develops scalable and well-structured applications using architectures such as MVC and Onion in .NET, focusing on separation of concerns and best development practices.",
-                exp2_note: "(You can see it in more detail in the projects section.)",
-                exp3_title: "Home Helper, Staff Trainer",
-                exp3_subtitle: "Sociedad Dominicana de los Testigos de Jehová | 2023-2025",
-                exp3_desc: "Facility Supervision: Supervises facility conditions to maintain cleanliness, organization, and proper maintenance in common and residential areas, prioritizing residents' well-being. Enforces safety measures to protect employees, customers, and company assets. Includes training new employees, providing guidance on procedures, policies, and safety standards while supporting the team in daily tasks.",
-                exp4_title: "Technical Support",
-                exp4_subtitle: "Ferreteria Mirasol | 2017-2023",
-                exp4_desc1: "Technical Troubleshooting and Data Management, handles software and hardware issues to ensure seamless and efficient operations, diagnoses system failures, identifies root causes, and implements effective solutions to maintain system integrity and functionality.",
-                exp4_desc2: "Record purchases and sales, manually or through automated systems, ensuring data accuracy and timely updates. This is critical to prevent inventory or financial discrepancies and support effective decision-making.",
-                exp5_title: "Project Leader - Software Developer",
-                exp5_subtitle: "CGL - Banco Popular dominicano | 2026",
-                exp5_desc: "Currently in development.",
-                edu_title: "Education",
-                edu1_title: "Software Developer",
-                edu1_institution: "Instituto Tecnológico de las Américas (ITLA)",
-                edu1_date: "2021-Present",
-                edu2_title: "Mathematics & Technology",
-                edu2_institution: "Centro Educativo en Artes Club Mauricio Baez",
-                edu2_date: "2019-2020",
-                edu3_title: "Arts: Cinematography and Photography",
-                edu3_institution: "Centro Educativo en Artes Club Mauricio Baez",
-                edu3_date: "2016-2019",
-                cert_title: "Certifications",
-                cert0_title: "SQL Bootcamp (30 Hours): Go from Zero to Hero",
-                cert0_issuer: "Udemy",
-                cert0_date: "On process",
-                cert1_title: "Finder",
-                cert1_issuer: "Capacítate el Empleo",
-                cert2_title: "Computer equipment installation and repair technician",
-                cert2_issuer: "Capacítate el Empleo",
-                cert3_title: "Computer Technician (Office Automation)",
-                cert3_issuer: "Capacítate el Empleo",
-                cert4_title: "IT Essentials: PC Hardware and Software",
-                cert4_issuer: "Cisco Networking Academy",
-                cert5_title: "Control Version",
-                cert5_issuer: "Capacítate el Empleo",
-                cert6_title: "Agile Leader: Mastering the Mindset, Skills, and Strategies to Succeed",
-                cert6_issuer: "LinkedIn",
-                cert7_title: "Dynamic Analysis",
-                cert7_issuer: "Neoris Global Campus",
-                cert8_title: "General Data Protection Regulation",
-                cert8_issuer: "Neoris Global Campus",
-                cert9_title: "Software Project Development Methodology",
-                cert9_issuer: "Neoris Global Campus",
-                cert10_title: "OWASP Top 10",
-                cert10_issuer: "Neoris Global Campus",
-                cert11_title: "Payment Card Industry Data Security Standard (PCI DSS)",
-                cert11_issuer: "Neoris Global Campus",
-                cert12_title: "Personal Data Privacy",
-                cert12_issuer: "Neoris Global Campus",
-                cert13_title: "Secure Development Process",
-                cert13_issuer: "Neoris Global Campus",
-                cert14_title: "Secure Coding Practices",
-                cert14_issuer: "Neoris Global Campus",
-                cert15_title: "General Awareness in Information Security v5.0",
-                cert15_issuer: "Neoris Global Campus",
-                cert16_title: "Information Security and Privacy Management System (SGSPI) V1.0",
-                cert16_issuer: "Neoris Global Campus",
-                cert17_title: "Project Management Skills for Leaders",
-                cert17_issuer: "LinkedIn",
-                modal_issuer_label: "Issuer:",
-                modal_date_label: "Date:",
-                pagination_prev: "Previous",
-                pagination_next: "Next"
-            },
-            es: {
-                title: "Geanluis Lorenzo | Acerca de",
-                logo: "Portafolio",
-                nav_home: "Inicio",
-                nav_about: "Acerca de",
-                nav_skills: "Habilidades",
-                nav_projects: "Proyectos",
-                nav_contact: "Contacto",
-                exp_title: "Experiencia",
-                exp1_title: "Agent Discovery",
-                exp1_subtitle: "Media Monitors | 2025-Presente",
-                exp1_desc: "Evaluación del rendimiento de campañas publicitarias mediante análisis de datos. Uso de herramientas como Google Analytics, investigaciones de Google y documentación de bibliotecas. Entrega de informes prácticos para mejorar la segmentación. Colaboración con equipos de marketing para refinar mensajes y audiencias. Habilidades en Excel, Data Studio y pensamiento estratégico.",
-                exp2_title: "Desarrollador Freelance",
-                exp2_subtitle: "2022-Presente",
-                exp2_desc1: "Participa en diversos proyectos, adquiriendo experiencia en múltiples tecnologías y enfoques de desarrollo. Demuestra adaptabilidad a distintos requisitos y tecnologías, entregando soluciones eficientes y funcionales adaptadas a las necesidades del usuario.",
-                exp2_desc2: "Desarrolla aplicaciones escalables y bien estructuradas usando arquitecturas como MVC y Onion en .NET, enfocándose en la separación de preocupaciones y buenas prácticas de desarrollo.",
-                exp2_note: "(Puedes verlo con más detalle en la sección de proyectos.)",
-                exp3_title: "Ayudante del Hogar, Capacitador de Personal",
-                exp3_subtitle: "Sociedad Dominicana de los Testigos de Jehová | 2023-2025",
-                exp3_desc: "Supervisión de instalaciones: supervisa las condiciones de las instalaciones para mantener limpieza, organización y mantenimiento adecuado en áreas comunes y residenciales, priorizando el bienestar de los residentes. Aplica medidas de seguridad para proteger empleados, clientes y activos de la empresa. Incluye la formación de nuevos empleados, proporcionando orientación sobre procedimientos, políticas y estándares de seguridad, apoyando al equipo en tareas diarias.",
-                exp4_title: "Soporte Técnico",
-                exp4_subtitle: "Ferretería Mirasol | 2017-2023",
-                exp4_desc1: "Resolución de problemas técnicos y gestión de datos, maneja problemas de software y hardware para garantizar operaciones fluidas y eficientes. Diagnostica fallos del sistema, identifica causas raíz e implementa soluciones efectivas para mantener la integridad y funcionalidad del sistema.",
-                exp4_desc2: "Registro de compras y ventas, manualmente o mediante sistemas automatizados, asegurando la precisión de los datos y actualizaciones oportunas. Esto es crítico para prevenir discrepancias de inventario o financieras y apoyar la toma de decisiones efectiva.",
-                exp5_title: "Líder de Proyecto - Desarrollador de Software",
-                exp5_subtitle: "CGL - Banco Popular dominicano | 2026",
-                exp5_desc: "Actualmente en desarrollo.",
-                edu_title: "Educación",
-                edu1_title: "Desarrollador de Software",
-                edu1_institution: "Instituto Tecnológico de las Américas (ITLA)",
-                edu1_date: "2021-Presente",
-                edu2_title: "Matemáticas y Tecnología",
-                edu2_institution: "Centro Educativo en Artes Club Mauricio Baez",
-                edu2_date: "2019-2020",
-                edu3_title: "Artes: Cinematografía y Fotografía",
-                edu3_institution: "Centro Educativo en Artes Club Mauricio Baez",
-                edu3_date: "2016-2019",
-                cert_title: "Certificaciones",
-                cert0_title: "SQL Bootcamp (30 Horas): De Cero a Héroe",
-                cert0_issuer: "Udemy",
-                cert0_date: "En proceso",
-                cert1_title: "Finder",
-                cert1_issuer: "Capacítate el Empleo",
-                cert2_title: "Técnico en instalación y reparación de equipos de cómputo",
-                cert2_issuer: "Capacítate el Empleo",
-                cert3_title: "Técnico en Computación (Ofimática)",
-                cert3_issuer: "Capacítate el Empleo",
-                cert4_title: "IT Essentials: Hardware y Software de PC",
-                cert4_issuer: "Cisco Networking Academy",
-                cert5_title: "Control de Versiones",
-                cert5_issuer: "Capacítate el Empleo",
-                cert6_title: "Agile Leader: Dominando la Mentalidad, Habilidades y Estrategias para Tener Éxito",
-                cert6_issuer: "LinkedIn",
-                cert7_title: "Análisis Dinámico",
-                cert7_issuer: "Neoris Global Campus",
-                cert8_title: "Reglamento General de Protección de Datos",
-                cert8_issuer: "Neoris Global Campus",
-                cert9_title: "Metodología de Desarrollo de Proyecto de Software",
-                cert9_issuer: "Neoris Global Campus",
-                cert10_title: "OWASP Top 10",
-                cert10_issuer: "Neoris Global Campus",
-                cert11_title: "Estándar de Seguridad de Datos de la Industria de Tarjetas de Pago (PCI DSS)",
-                cert11_issuer: "Neoris Global Campus",
-                cert12_title: "Privacidad de Datos Personales",
-                cert12_issuer: "Neoris Global Campus",
-                cert13_title: "Proceso de Desarrollo Seguro",
-                cert13_issuer: "Neoris Global Campus",
-                cert14_title: "Prácticas de Codificación Segura",
-                cert14_issuer: "Neoris Global Campus",
-                cert15_title: "Concientización General en Seguridad de la Información v5.0",
-                cert15_issuer: "Neoris Global Campus",
-                cert16_title: "Sistema de Gestión de Seguridad de Seguridad y Privacidad de la Información (SGSPI) V1.0",
-                cert16_issuer: "Neoris Global Campus",
-                cert17_title: "Habilidades de Gestión de Proyectos para Líderes",
-                cert17_issuer: "LinkedIn",
-                modal_issuer_label: "Emisor:",
-                modal_date_label: "Fecha:",
-                pagination_prev: "Anterior",
-                pagination_next: "Siguiente"
-            }
-        };
-
-        // ========================================
-        // 5. FUNCIONES DE IDIOMA
-        // ========================================
-        let currentLang = 'en';
-
-        function setLanguage(lang) {
-            if (!translations[lang]) return;
-            currentLang = lang;
-
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-
-            document.title = translations[lang].title;
-            const langToggle = document.getElementById('langToggle');
-            if (langToggle) langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
-            localStorage.setItem('preferredLang', lang);
-        }
-
-        function toggleLanguage() {
-            setLanguage(currentLang === 'en' ? 'es' : 'en');
-        }
-
-        // ========================================
-        // 6. MENÚ HAMBURGUESA
-        // ========================================
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        navToggle?.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // ========================================
-        // 7. MODO OSCURO/CLARO
-        // ========================================
-        const themeToggle = document.getElementById('themeToggle');
-        const htmlElement = document.documentElement;
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        htmlElement.setAttribute('data-theme', savedTheme);
-
-        function updateThemeIcon(theme) {
-            const icon = themeToggle?.querySelector('i');
-            if (icon) icon.className = theme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
-        }
-
-        updateThemeIcon(savedTheme);
-
-        themeToggle?.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        // ========================================
-        // 8. INICIALIZACIÓN
-        // ========================================
-        // Cargar certificados
+        // Actualizar certificados
         renderCertificates();
 
-        // Cargar idioma
-        const savedLang = localStorage.getItem('preferredLang');
-        if (savedLang && translations[savedLang]) {
-            setLanguage(savedLang);
-        } else {
-            const browserLang = navigator.language.split('-')[0];
-            setLanguage(browserLang === 'es' ? 'es' : 'en');
+        // Actualizar botón de idioma
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
+        
+        localStorage.setItem('preferredLang', lang);
+    });
+}
+
+function toggleLanguage() {
+    const newLang = APP_STATE.currentLang === 'en' ? 'es' : 'en';
+    applyLanguage(newLang);
+}
+
+// ========== FUNCIONES DE MENÚ ==========
+function toggleNavMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+}
+
+function closeNavMenu() {
+    document.querySelector('.nav-links').classList.remove('active');
+}
+
+// ============================================================
+// 7. INICIALIZACIÓN
+// ============================================================
+function init() {
+    // Tema
+    initTheme();
+
+    // Idioma
+    const savedLang = localStorage.getItem('preferredLang');
+    const browserLang = navigator.language.split('-')[0];
+    const lang = (savedLang && TRANSLATIONS[savedLang]) ? savedLang :
+        (browserLang === 'es' ? 'es' : 'en');
+    applyLanguage(lang);
+
+    // Event Listeners
+    document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.querySelector('.nav-toggle').addEventListener('click', toggleNavMenu);
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', closeNavMenu);
+    });
+
+    // Filtros
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => applyFilter(e.target.dataset.filter));
+    });
+
+    // Modal
+    document.querySelector('.cert-modal-close').addEventListener('click', closeModal);
+    window.addEventListener('click', e => {
+        if (e.target === document.getElementById('certModal')) closeModal();
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && document.getElementById('certModal').style.display === 'block') {
+            closeModal();
         }
-        document.getElementById('langToggle')?.addEventListener('click', toggleLanguage);
+    });
+
+    window.changePage = changePage;
+}
+
+document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-</html> 
+</html>
